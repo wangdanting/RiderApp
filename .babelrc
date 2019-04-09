@@ -1,0 +1,18 @@
+{
+  "presets": ["module:metro-react-native-babel-preset"],
+  "plugins": [
+    ["import", { "libraryName": "@ant-design/react-native" }],
+    [
+      "module-resolver",
+      {
+        "extensions": [".js", ".ios.js", ".android.js"],
+        "root": ["./src"],
+        "alias": {
+          "@": "./src"
+        }
+      }
+    ],
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+  ]
+}
+
