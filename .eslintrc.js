@@ -4,15 +4,7 @@ module.exports = {
     browser: true,
     es6: true
   },
-  extends: [
-    'eslint:recommended',
-    'airbnb',
-    'airbnb-base',
-    'plugin:react/recommended',
-    'prettier',
-    'prettier/react',
-    'plugin:prettier/recommended'
-  ],
+  extends: ['airbnb', 'plugin:prettier/recommended'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
@@ -27,7 +19,6 @@ module.exports = {
   plugins: ['prettier', 'react'],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js'] }],
-    'class-methods-use-this': 'off',
     'import/no-unresolved': [2, { ignore: ['^@/'] }]
   }
 };
