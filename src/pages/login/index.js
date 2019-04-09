@@ -1,12 +1,10 @@
-import React, { PureComponent } from "react";
-import { Platform, Text, SafeAreaView } from "react-native";
+import React from 'react';
+import { Text, SafeAreaView } from 'react-native';
 
-export default class Login extends PureComponent {
-  render() {
-    return (
-      <SafeAreaView>
-        <Text>Login</Text>
-      </SafeAreaView>
-    );
-  }
-}
+const Login = () => (
+  <SafeAreaView>
+    <Text>Login</Text>
+  </SafeAreaView>
+);
+
+export default Login;

@@ -1,12 +1,10 @@
-import React, { PureComponent } from "react";
-import { Platform, Text, SafeAreaView } from "react-native";
+import React from 'react';
+import { Text, SafeAreaView } from 'react-native';
 
-export default class Order extends PureComponent {
-  render() {
-    return (
-      <SafeAreaView>
-        <Text>Order</Text>
-      </SafeAreaView>
-    );
-  }
-}
+const Order = () => (
+  <SafeAreaView>
+    <Text>Order</Text>
+  </SafeAreaView>
+);
+
+export default Order;

@@ -1,8 +1,8 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
 export const submitting = (state = false, action) => {
   switch (action.type) {
-    case "Test":
+    case 'Test':
       return action.loading;
     default:
       return state;

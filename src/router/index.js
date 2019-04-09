@@ -1,16 +1,12 @@
-import Login from "@/pages/login";
-import Order from "@/pages/order";
+import Login from '@/pages/login';
+import Order from '@/pages/order';
 
-import {
-  createAppContainer,
-  createStackNavigator,
-  createSwitchNavigator
-} from "react-navigation";
+import { createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
 
 const AuthStack = createStackNavigator(
   { Login },
   {
-    headerMode: "none"
+    headerMode: 'none'
   }
 );
 const AppStack = createStackNavigator({
@@ -24,7 +20,7 @@ const AppNavigation = createSwitchNavigator(
     App: AppStack
   },
   {
-    initialRouteName: "Auth"
+    initialRouteName: 'Auth'
   }
 );
 
