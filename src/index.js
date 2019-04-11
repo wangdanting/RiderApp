@@ -3,6 +3,7 @@ import { YellowBox, Dimensions } from 'react-native';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import { Provider as AntProvider } from '@ant-design/react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import AppContainer from './router/index';
 import rootReducer from './reducers';
@@ -21,7 +22,9 @@ EStyleSheet.build({ $rem: entireScreenWidth / 750, ...variables });
 
 const App = () => (
   <Provider store={store}>
-    <AppContainer />
+    <AntProvider>
+      <AppContainer />
+    </AntProvider>
   </Provider>
 );
 
