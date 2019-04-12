@@ -8,6 +8,7 @@ import {
   Keyboard,
   Platform
 } from 'react-native';
+import PropTypes from 'prop-types';
 import { Button, Toast } from '@ant-design/react-native';
 import styles from './style';
 import CommonStyles from '@/common/styles/commonStyles';
@@ -19,11 +20,18 @@ const { authKey } = config;
 let countdownInterval = null; // 计时器
 
 class Login extends PureComponent {
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func
+    }).isRequired
+  };
+
   state = {
     mobile: '', // 手机号
     validateCode: '', // 验证码
     isActiveCodeBtn: true, // 是否激活发送验证码按钮
-    countdown: 60 // 倒计时
+    countdown: 60, // 倒计时,
+    isSubmiting: false // 提交按钮的loading
   };
 
   componentWillUnmount() {
@@ -91,6 +99,7 @@ class Login extends PureComponent {
       },
       method: 'post'
     }).then(() => {
+      Toast.info('验证码已发送，请注意查收！');
       this.startCountdown();
     });
   };
@@ -137,6 +146,7 @@ class Login extends PureComponent {
    *  登录
    */
   login = () => {
+    const { navigation } = this.props;
     const { mobile, validateCode } = this.state;
     const params = {
       mobile,
@@ -144,16 +154,31 @@ class Login extends PureComponent {
       deviceType: Platform.OS,
       deviceToken: '2bcb2fcbcec5442ca2815f54e63196d7'
     };
+    this.setState({
+      isSubmiting: true
+    });
     request('/sessions/create_token', {
       method: 'post',
       data: params
     }).then(({ result }) => {
       Storage.set(authKey, result);
+      this.setState({
+        isSubmiting: false
+      });
+      navigation.navigate('App');
     });
   };
 
+  /**
+   *  跳转用户协议
+   */
+  goProtocol = () => {
+    const { navigation } = this.props;
+    navigation.navigate('Protocol');
+  };
+
   render() {
-    const { countdown, isActiveCodeBtn } = this.state;
+    const { countdown, isActiveCodeBtn, isSubmiting } = this.state;
     return (
       <SafeAreaView style={styles.container}>
         <TouchableOpacity activeOpacity={1.0} onPress={this.hideKeyboard} style={styles.wrap}>
@@ -193,13 +218,14 @@ class Login extends PureComponent {
           <Button
             type='primary'
             size='large'
+            loading={isSubmiting}
             style={CommonStyles.largeBtn}
             activeStyle={CommonStyles.btnActiveStyle}
             onPress={this.check}
           >
             登录
           </Button>
-          <TouchableOpacity style={styles.protocol}>
+          <TouchableOpacity style={styles.protocol} onPress={this.goProtocol}>
             <Text style={styles.protocol_txt}>
               登录代表您已同意
               <Text style={styles.protocol_inner}>《用户协议》</Text>

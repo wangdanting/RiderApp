@@ -20,6 +20,7 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js'] }],
     'import/no-unresolved': [2, { ignore: ['^@/'] }],
-    'no-empty': 'off'
+    'no-empty': 'off',
+    'no-use-before-define': ['error', { variables: false }]
   }
 };

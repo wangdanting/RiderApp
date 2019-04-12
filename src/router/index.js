@@ -1,7 +1,8 @@
+import { createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import AuthLoadingScreen from '@/pages/auth-loading';
 import Login from '@/pages/login';
 import Order from '@/pages/order';
-
-import { createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import Protocol from '@/pages/login/protocol';
 
 const AuthStack = createStackNavigator(
   { Login },
@@ -9,18 +10,20 @@ const AuthStack = createStackNavigator(
     headerMode: 'none'
   }
 );
+
 const AppStack = createStackNavigator({
-  Order
+  Order,
+  Protocol
 });
 
 const AppNavigation = createSwitchNavigator(
   {
-    // AuthLoading: AuthLoadingScreen,
+    AuthLoading: AuthLoadingScreen,
     Auth: AuthStack,
     App: AppStack
   },
   {
-    initialRouteName: 'Auth'
+    initialRouteName: 'AuthLoading'
   }
 );
 
