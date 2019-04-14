@@ -7,6 +7,7 @@ const variables = {
   $headingColor: '#121212', // 标题色
   $textColor: '#666', // 主文本色
   $textColorSecondary: '#999', // 次文本色
+  $redColor: '#ff3636', // 红色
   $disabledColor: 'rgba(0, 0, 0, .25)', // 失效色
   $borderColorBase: '#e5e5e5', // 边框色
   $backgroundColorBase: '#f8f8f8', // 基础背景色

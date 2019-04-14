@@ -3,7 +3,8 @@ import { Text, View, SafeAreaView, TouchableOpacity, Image } from 'react-native'
 import { Tabs, Badge } from '@ant-design/react-native';
 import theme from '@/common/styles/variables';
 import EmptyOrder from '@/components/EmptyOrder';
-import OfflineTip from './offlineTip';
+import OrderList from './orderList';
+// import OfflineTip from './offlineTip';
 
 import styles from './style';
 
@@ -61,10 +62,10 @@ class Order extends PureComponent {
           tabBarInactiveTextColor={$textColor}
         >
           <View style={{ flex: 1 }}>
-            <EmptyOrder />
+            <OrderList />
           </View>
           <View>
-            <Text>Content of Second Tab</Text>
+            <EmptyOrder />
           </View>
           <View>
             <Text>Content of Third Tab</Text>
@@ -73,7 +74,7 @@ class Order extends PureComponent {
             <Text>Content of Third Tab</Text>
           </View>
         </Tabs>
-        <OfflineTip />
+        {/* <OfflineTip /> */}
       </SafeAreaView>
     );
   }
