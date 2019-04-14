@@ -13,9 +13,9 @@ const AuthStack = createStackNavigator(
 );
 
 const AppStack = createStackNavigator({
+  Order,
   personalCenter,
-  Protocol,
-  Order
+  Protocol
 });
 
 const AppNavigation = createSwitchNavigator(

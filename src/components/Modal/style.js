@@ -2,7 +2,6 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 const styles = EStyleSheet.create({
   modal: {
-    marginTop: '100rem',
     backgroundColor: '#fff'
   },
   title: {
