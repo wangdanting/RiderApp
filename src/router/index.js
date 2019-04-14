@@ -3,6 +3,7 @@ import AuthLoadingScreen from '@/pages/auth-loading';
 import Login from '@/pages/login';
 import Order from '@/pages/order';
 import Protocol from '@/pages/login/protocol';
+import personalCenter from '@/pages/personal-center';
 
 const AuthStack = createStackNavigator(
   { Login },
@@ -12,8 +13,9 @@ const AuthStack = createStackNavigator(
 );
 
 const AppStack = createStackNavigator({
-  Order,
-  Protocol
+  personalCenter,
+  Protocol,
+  Order
 });
 
 const AppNavigation = createSwitchNavigator(

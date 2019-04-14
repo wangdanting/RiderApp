@@ -9,6 +9,7 @@ const variables = {
   $textColorSecondary: '#999', // 次文本色
   $disabledColor: 'rgba(0, 0, 0, .25)', // 失效色
   $borderColorBase: '#e5e5e5', // 边框色
+  $backgroundColorBase: '#f8f8f8', // 基础背景色
   $deviceWidth: Dimensions.get('window').width, // 设备的宽度
   $deviceHeight: Dimensions.get('window').height // 设备的高度
 };

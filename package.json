@@ -21,6 +21,8 @@
     "react-native": "0.59.3",
     "react-native-extended-stylesheet": "^0.11.1",
     "react-native-gesture-handler": "^1.1.0",
+    "react-native-modal": "^9.0.0",
+    "react-native-switch-selector": "^1.1.12",
     "react-navigation": "^3.6.1",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",

@@ -82,6 +82,9 @@ class Login extends PureComponent {
     this.setState({
       validateCode
     });
+    if (validateCode.length === 4) {
+      this.hideKeyboard();
+    }
   };
 
   /**

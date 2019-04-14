@@ -5,6 +5,10 @@ const CommonStyles = EStyleSheet.create({
     borderBottomWidth: '1rem',
     borderBottomColor: '$borderColorBase'
   },
+  borderTop: {
+    borderTopWidth: '1rem',
+    borderTopColor: '$borderColorBase'
+  },
   largeBtn: {
     height: '110rem',
     backgroundColor: '$primaryColor',
