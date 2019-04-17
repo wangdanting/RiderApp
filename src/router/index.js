@@ -2,6 +2,7 @@ import { createAppContainer, createStackNavigator, createSwitchNavigator } from 
 import AuthLoadingScreen from '@/pages/auth-loading';
 import Login from '@/pages/login';
 import Order from '@/pages/order';
+import OrderDetail from '@/pages/order/orderDetail';
 import Protocol from '@/pages/login/protocol';
 import personalCenter from '@/pages/personal-center';
 
@@ -13,6 +14,7 @@ const AuthStack = createStackNavigator(
 );
 
 const AppStack = createStackNavigator({
+  OrderDetail,
   Order,
   personalCenter,
   Protocol

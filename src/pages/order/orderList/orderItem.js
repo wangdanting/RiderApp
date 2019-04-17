@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import StatusBar from '@/components/StatusBar';
 import Tag from '@/components/Tag';
@@ -24,6 +24,7 @@ class OrderItem extends PureComponent {
         <Tag />
         <AddressInfo quInfo={quInfo} songInfo={songInfo} />
         <Button />
+        <Text style={styles.orderId}>订单号 123</Text>
       </View>
     );
   }
@@ -33,7 +34,12 @@ const styles = EStyleSheet.create({
   container: {
     marginTop: '20rem',
     paddingHorizontal: '30rem',
+    paddingVertical: '20rem',
     backgroundColor: '#fff'
+  },
+  orderId: {
+    color: '$textColor',
+    lineHeight: '40rem'
   }
 });
 

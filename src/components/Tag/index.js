@@ -23,7 +23,9 @@ const Tag = () => (
 );
 
 const styles = EStyleSheet.create({
-  container: {},
+  container: {
+    marginTop: '20rem'
+  },
   tag: {
     marginRight: '10rem',
     paddingHorizontal: '15rem',
