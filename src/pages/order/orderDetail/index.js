@@ -1,10 +1,12 @@
 import React, { PureComponent } from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Text } from 'react-native';
+import { Flex } from '@ant-design/react-native';
 import Tag from '@/components/Tag';
 import StatusBar from '@/components/StatusBar';
 import AddressInfo from '@/components/AddressInfo';
 import Steps from '@/components/Steps';
 import Daigou from '@/components/Daigou';
+import DescriptionList from '@/components/DescriptionList';
 import Contact from './contact';
 import styles from './style';
 
@@ -30,11 +32,18 @@ class OrderDetail extends PureComponent {
         </View>
         <View style={styles.map} />
         <View style={styles.whiteBg}>
+          <Flex style={styles.yijian} justify='between'>
+            <View style={styles.orderId}>
+              <Text style={styles.orderIdTxt}>39</Text>
+            </View>
+            <Text style={styles.orderIdLabel}>一键下单单号</Text>
+          </Flex>
           <AddressInfo quInfo={quInfo} songInfo={songInfo} />
           <Daigou />
           <Contact />
         </View>
         <Steps />
+        <DescriptionList />
       </ScrollView>
     );
   }
