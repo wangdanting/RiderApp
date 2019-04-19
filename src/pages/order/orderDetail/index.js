@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import Tag from '@/components/Tag';
 import StatusBar from '@/components/StatusBar';
 import AddressInfo from '@/components/AddressInfo';
+import Steps from '@/components/Steps';
 import Contact from './contact';
 import styles from './style';
 
@@ -31,6 +32,7 @@ class OrderDetail extends PureComponent {
           <AddressInfo quInfo={quInfo} songInfo={songInfo} />
           <Contact />
         </View>
+        <Steps />
       </View>
     );
   }

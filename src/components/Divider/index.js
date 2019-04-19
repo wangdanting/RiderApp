@@ -3,14 +3,18 @@ import { View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import PropTypes from 'prop-types';
 
-const Divider = ({ type }) => <View style={[styles.divider, styles[type]]} />;
+const Divider = ({ type, color }) => (
+  <View style={[styles.divider, styles[type], { backgroundColor: color }]} />
+);
 
 Divider.propTypes = {
-  type: PropTypes.oneOf(['horizontal', 'vertical'])
+  type: PropTypes.oneOf(['horizontal', 'vertical']),
+  color: PropTypes.string
 };
 
 Divider.defaultProps = {
-  type: 'horizontal'
+  type: 'horizontal',
+  color: '$borderColorBase'
 };
 
 const styles = EStyleSheet.create({
