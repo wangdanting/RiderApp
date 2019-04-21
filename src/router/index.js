@@ -5,6 +5,7 @@ import Order from '@/pages/order';
 import OrderDetail from '@/pages/order/orderDetail';
 import Protocol from '@/pages/login/protocol';
 import personalCenter from '@/pages/personal-center';
+import transferOrder from '@/pages/transfer-order';
 
 const AuthStack = createStackNavigator(
   { Login },
@@ -14,6 +15,7 @@ const AuthStack = createStackNavigator(
 );
 
 const AppStack = createStackNavigator({
+  transferOrder,
   OrderDetail,
   Order,
   personalCenter,

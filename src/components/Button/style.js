@@ -5,7 +5,8 @@ const styles = EStyleSheet.create({
     marginVertical: '20rem'
   },
   btn: {
-    height: '110rem',
+    height: '100%',
+    width: '100%',
     borderWidth: '1rem',
     borderColor: '$textColorSecondary'
   },
