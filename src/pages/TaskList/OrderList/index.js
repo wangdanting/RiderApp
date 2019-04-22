@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import { View } from 'react-native';
-import OrderItem from './OrderItem';
+import OrderItem from '../OrderItem';
 import styles from './style';
 
-class TransferApply extends PureComponent {
+class OrderList extends PureComponent {
   abc = () => {};
 
   render() {
@@ -15,4 +15,4 @@ class TransferApply extends PureComponent {
   }
 }
 
-export default TransferApply;
+export default OrderList;

@@ -3,7 +3,7 @@ import { View, SafeAreaView } from 'react-native';
 import { Tabs } from '@ant-design/react-native';
 import theme from '@/common/styles/variables';
 import EmptyOrder from '@/components/EmptyOrder';
-import TransferApply from './TransferApply';
+import OrderList from './OrderList';
 
 import styles from './style';
 
@@ -25,7 +25,7 @@ class TaskList extends PureComponent {
           tabBarInactiveTextColor={$textColor}
         >
           <View>
-            <TransferApply />
+            <OrderList />
           </View>
           <View>
             <EmptyOrder />
