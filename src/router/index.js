@@ -8,7 +8,8 @@ import PersonalCenter from '@/pages/personal-center';
 import TransferOrder from '@/pages/TransferOrder';
 import EntryReceiver from '@/pages/entry-receiver';
 import Address from '@/pages/entry-receiver/address';
-import TaskList from '../pages/TaskList';
+import TaskList from '@/pages/TaskList';
+import Notification from '@/pages/Notification';
 
 const AuthStack = createStackNavigator(
   { Login },
@@ -18,6 +19,7 @@ const AuthStack = createStackNavigator(
 );
 
 const AppStack = createStackNavigator({
+  Notification,
   TaskList,
   Address,
   EntryReceiver,
