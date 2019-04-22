@@ -11,11 +11,11 @@ const styles = EStyleSheet.create({
     backgroundColor: '#fff'
   },
   content: {
-    paddingHorizontal: '30rem'
+    paddingHorizontal: '30rem',
+    backgroundColor: '#fff'
   },
   item: {
-    paddingVertical: '30rem',
-    backgroundColor: '#fff'
+    paddingVertical: '30rem'
   },
   title: {
     fontSize: '35rem',
