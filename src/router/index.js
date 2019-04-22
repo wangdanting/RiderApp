@@ -4,9 +4,10 @@ import Login from '@/pages/login';
 import Order from '@/pages/order';
 import OrderDetail from '@/pages/order/orderDetail';
 import Protocol from '@/pages/login/protocol';
-import personalCenter from '@/pages/personal-center';
-import transferOrder from '@/pages/transfer-order';
-import entryReceiver from '@/pages/entry-receiver';
+import PersonalCenter from '@/pages/personal-center';
+import TransferOrder from '@/pages/transfer-order';
+import EntryReceiver from '@/pages/entry-receiver';
+import Address from '../pages/entry-receiver/address';
 
 const AuthStack = createStackNavigator(
   { Login },
@@ -16,11 +17,12 @@ const AuthStack = createStackNavigator(
 );
 
 const AppStack = createStackNavigator({
-  entryReceiver,
-  transferOrder,
+  Address,
+  EntryReceiver,
+  TransferOrder,
   OrderDetail,
   Order,
-  personalCenter,
+  PersonalCenter,
   Protocol
 });
 

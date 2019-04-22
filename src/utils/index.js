@@ -21,3 +21,18 @@ export const md5 = reqBodyParms => {
  *  手机号验证正则
  */
 export const regMobile = /^1\d{10}/;
+
+/**
+ *  手机号分隔
+ * @param {string} mobile 手机号
+ * @returns '188-8888-8888'格式的手机号
+ * @example
+ * mobileFormat('18888888888')
+ * // => '188-8888-8888'
+ */
+export const formatMobile = mobile => {
+  if (!regMobile.test(mobile)) {
+    return '';
+  }
+  return String(mobile).replace(/(^\d{3}|\d{4}\B)/g, '$1 ');
+};
