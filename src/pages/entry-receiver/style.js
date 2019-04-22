@@ -8,7 +8,8 @@ const styles = EStyleSheet.create({
   content: {
     marginTop: '20rem',
     paddingHorizontal: '30rem',
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    zIndex: 1000
   },
   icon: {
     marginTop: '120rem',
@@ -17,7 +18,8 @@ const styles = EStyleSheet.create({
     height: '60rem'
   },
   info: {
-    flex: 1
+    flex: 1,
+    position: 'relative'
   },
   item: {
     height: '120rem'

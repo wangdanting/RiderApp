@@ -3,6 +3,7 @@ import { View, Text, Image, TextInput } from 'react-native';
 import { Flex } from '@ant-design/react-native';
 import commonStyles from '@/common/styles/commonStyles';
 import Button from '@/components/Button';
+import HistoryReceiver from './history-receiver';
 import styles from './style';
 
 const shouIcon = require('./images/ic_shou.png');
@@ -35,6 +36,7 @@ class entryReceiver extends PureComponent {
               <Text style={styles.label}>门牌号：</Text>
               <TextInput placeholder='例：16号楼427室' style={styles.input} />
             </Flex>
+            <HistoryReceiver />
           </View>
         </Flex>
         <Button title='保存' type='primary' style={styles.btn} />
