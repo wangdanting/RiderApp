@@ -13,6 +13,7 @@ import Notification from '@/pages/Notification';
 import HistoryOrder from '@/pages/HistoryOrder';
 import HistoryOrderDetail from '@/pages/HistoryOrder/OrderDetail';
 import HistoryOrderSearch from '@/pages/HistoryOrder/Search';
+import Record from '@/pages/Record';
 
 const AuthStack = createStackNavigator(
   { Login },
@@ -22,6 +23,7 @@ const AuthStack = createStackNavigator(
 );
 
 const AppStack = createStackNavigator({
+  Record,
   HistoryOrderSearch,
   HistoryOrderDetail,
   HistoryOrder,
