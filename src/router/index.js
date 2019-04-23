@@ -11,7 +11,8 @@ import Address from '@/pages/entry-receiver/address';
 import TaskList from '@/pages/TaskList';
 import Notification from '@/pages/Notification';
 import HistoryOrder from '@/pages/HistoryOrder';
-import HistoryOrderDetail from '../pages/HistoryOrder/OrderDetail';
+import HistoryOrderDetail from '@/pages/HistoryOrder/OrderDetail';
+import HistoryOrderSearch from '@/pages/HistoryOrder/Search';
 
 const AuthStack = createStackNavigator(
   { Login },
@@ -21,6 +22,7 @@ const AuthStack = createStackNavigator(
 );
 
 const AppStack = createStackNavigator({
+  HistoryOrderSearch,
   HistoryOrderDetail,
   HistoryOrder,
   OrderDetail,

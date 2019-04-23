@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 import AddressInfo from '@/components/AddressInfo';
-import Tag from '../../../components/Tag';
-import Daigou from '../../../components/Daigou';
-import Separate from '../../../components/Separate';
-import Steps from '../../../components/Steps';
-import DescriptionList from '../../../components/DescriptionList';
+import Tag from '@/components/Tag';
+import Daigou from '@/components/Daigou';
+import Separate from '@/components/Separate';
+import Steps from '@/components/Steps';
+import DescriptionList from '@/components/DescriptionList';
 import styles from './style';
 
 const { SeparateItem } = Separate;
