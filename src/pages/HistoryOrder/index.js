@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Flex } from '@ant-design/react-native';
 import styles from './style';
+import DateRangePicker from '@/components/DateRangePicker';
 
 const searchIcon = require('./images/top_search.png');
 const triangleIcon = require('./images/day_triangle.png');
@@ -47,6 +48,7 @@ class HistoryOrder extends PureComponent {
             <Text style={styles.item}>自定义</Text>
           </TouchableOpacity>
         </View> */}
+        <DateRangePicker />
       </View>
     );
   }
