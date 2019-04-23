@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Flex } from '@ant-design/react-native';
 import styles from './style';
 import DateRangePicker from '@/components/DateRangePicker';
+import OrderCell from './OrderCell';
 
 const searchIcon = require('./images/top_search.png');
 const triangleIcon = require('./images/day_triangle.png');
@@ -49,6 +50,8 @@ class HistoryOrder extends PureComponent {
           </TouchableOpacity>
         </View> */}
         <DateRangePicker />
+
+        <OrderCell />
       </View>
     );
   }
