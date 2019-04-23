@@ -13,25 +13,6 @@ const styles = EStyleSheet.create({
   whiteBg: {
     backgroundColor: '#fff',
     paddingHorizontal: '30rem'
-  },
-  yijian: {
-    height: '110rem'
-  },
-  orderId: {
-    paddingVertical: '10rem',
-    paddingHorizontal: '20rem',
-    borderColor: '$primaryColor',
-    borderWidth: '1rem',
-    borderRadius: 50
-  },
-  orderIdTxt: {
-    fontSize: '50rem',
-    fontWeight: '900',
-    color: '$primaryColor'
-  },
-  orderIdLabel: {
-    fontSize: '30rem',
-    color: '$primaryColor'
   }
 });
 
