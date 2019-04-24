@@ -14,6 +14,17 @@ const { $primaryColor, $textColorSecondary } = theme;
 const headImg = require('./images/head.png');
 
 class personalCenter extends PureComponent {
+  static navigationOptions = {
+    headerTitleStyle: {
+      textAlign: 'center',
+      flex: 1
+    },
+    headerStyle: {
+      borderBottomWidth: 0,
+      elevation: 0
+    }
+  };
+
   state = {
     userInfo: {}
   };
@@ -70,7 +81,7 @@ class personalCenter extends PureComponent {
           </Flex>
           <Text style={styles.version}>当前版本v1.0.0</Text>
         </SafeAreaView>
-        <Modal leftText='确定' rightText='取消' highLightPosition='left' title='收工'>
+        <Modal leftText='确定' rightText='取消' highLightPosition='left' title='收工' isVisible>
           <Text style={styles.modal}>将无法接受新的配送订单，确认收工？</Text>
         </Modal>
       </ScrollView>

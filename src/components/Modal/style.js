@@ -2,13 +2,15 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 const styles = EStyleSheet.create({
   modal: {
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    marginHorizontal: '30rem'
   },
   title: {
     fontWeight: '900',
     fontSize: '40rem',
     textAlign: 'center',
-    lineHeight: '150rem'
+    lineHeight: '150rem',
+    color: '$headingColor'
   },
   content: {
     paddingBottom: '180rem'

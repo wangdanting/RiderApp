@@ -4,7 +4,7 @@ import Login from '@/pages/login';
 import Order from '@/pages/order';
 import OrderDetail from '@/pages/order/orderDetail';
 import Protocol from '@/pages/login/protocol';
-import PersonalCenter from '@/pages/personal-center';
+import PersonalCenter from '@/pages/PersonalCenter';
 import TransferOrder from '@/pages/TransferOrder';
 import EntryReceiver from '@/pages/entry-receiver';
 import Address from '@/pages/entry-receiver/address';
@@ -23,6 +23,7 @@ const AuthStack = createStackNavigator(
 );
 
 const AppStack = createStackNavigator({
+  PersonalCenter,
   HistoryOrder,
   HistoryOrderDetail,
   HistoryOrderSearch,
@@ -34,7 +35,6 @@ const AppStack = createStackNavigator({
   EntryReceiver,
   TransferOrder,
   Order,
-  PersonalCenter,
   Protocol
 });
 
