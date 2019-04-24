@@ -38,4 +38,16 @@ const OrderDetail = () => (
   </View>
 );
 
+OrderDetail.navigationOptions = {
+  title: '订单详情',
+  headerTitleStyle: {
+    textAlign: 'center',
+    flex: 1
+  },
+  headerStyle: {
+    borderBottomWidth: 0,
+    elevation: 0
+  }
+};
+
 export default OrderDetail;
