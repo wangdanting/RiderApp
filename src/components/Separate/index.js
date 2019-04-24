@@ -11,7 +11,7 @@ const Separate = ({ children }) => {
     return (
       <Fragment key={item.props.title}>
         {item}
-        {index !== arr.length - 1 && <Divider type='vertical' />}
+        {index !== arr.length - 1 && <Divider type='vertical' height='60rem' />}
       </Fragment>
     );
   });

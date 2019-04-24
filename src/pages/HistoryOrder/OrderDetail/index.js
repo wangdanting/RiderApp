@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, ScrollView } from 'react-native';
 import AddressInfo from '@/components/AddressInfo';
 import Tag from '@/components/Tag';
 import Daigou from '@/components/Daigou';
@@ -21,7 +21,7 @@ const songInfo = {
 };
 
 const OrderDetail = () => (
-  <View style={styles.page}>
+  <ScrollView style={styles.page}>
     <View style={styles.container}>
       <Image source={abnormalIcon} style={styles.abnormal} />
       <Tag />
@@ -35,7 +35,7 @@ const OrderDetail = () => (
     </Separate>
     <Steps />
     <DescriptionList />
-  </View>
+  </ScrollView>
 );
 
 OrderDetail.navigationOptions = {

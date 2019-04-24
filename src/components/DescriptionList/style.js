@@ -2,13 +2,13 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 const styles = EStyleSheet.create({
   title: {
-    paddingHorizontal: '50rem',
+    paddingHorizontal: '30rem',
     lineHeight: '110rem',
-    fontSize: '40rem',
+    fontSize: '35rem',
     color: '$textColor'
   },
   content: {
-    paddingHorizontal: '50rem',
+    paddingHorizontal: '30rem',
     paddingBottom: '30rem',
     backgroundColor: '#fff'
   },
@@ -17,7 +17,7 @@ const styles = EStyleSheet.create({
     color: '$textColor'
   },
   value: {
-    marginLeft: '50rem',
+    marginLeft: '30rem',
     fontSize: '30rem',
     color: '$headingColor'
   },
