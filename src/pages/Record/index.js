@@ -7,7 +7,15 @@ import Tabs from './Tabs';
 
 class Record extends PureComponent {
   static navigationOptions = {
-    title: '我的战绩'
+    title: '我的战绩',
+    headerTitleStyle: {
+      textAlign: 'center',
+      flex: 1
+    },
+    headerStyle: {
+      borderBottomWidth: 0,
+      elevation: 0
+    }
   };
 
   render() {
@@ -40,15 +48,15 @@ class Record extends PureComponent {
           </Flex>
           <Flex justify='between' style={styles.items}>
             <Text style={styles.left}>准时配送</Text>
-            <Text style={styles.right}>556单</Text>
+            <Text style={styles.right}>556 单</Text>
           </Flex>
           <Flex justify='between' style={styles.items}>
             <Text style={styles.left}>超时配送</Text>
-            <Text style={styles.right}>556单</Text>
+            <Text style={styles.right}>556 单</Text>
           </Flex>
           <Flex justify='between' style={styles.items}>
             <Text style={styles.left}>异常配送</Text>
-            <Text style={styles.right}>556单</Text>
+            <Text style={styles.right}>556 单</Text>
           </Flex>
         </View>
       </View>

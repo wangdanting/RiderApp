@@ -38,13 +38,13 @@ const styles = EStyleSheet.create({
     textAlign: 'center'
   },
   order: {
-    fontSize: '60rem',
+    fontSize: '50rem',
     fontWeight: '600',
     color: '#ee7701',
     textAlign: 'center'
   },
   km: {
-    fontSize: '60rem',
+    fontSize: '50rem',
     fontWeight: '600',
     color: '#5b5b5b',
     textAlign: 'center'
