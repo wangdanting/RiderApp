@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import { View, Text } from 'react-native';
 import { Flex } from '@ant-design/react-native';
-import Divider from '../../components/Divider';
+import Divider from '@/components/Divider';
+import DateRangePicker from '@/components/DateRangePicker';
 import styles from './style';
 import Tabs from './Tabs';
 
@@ -22,6 +23,7 @@ class Record extends PureComponent {
     return (
       <View style={styles.page}>
         <Tabs />
+        <DateRangePicker />
         <View style={styles.container}>
           <Flex style={styles.title}>
             <View style={styles.tag} />
