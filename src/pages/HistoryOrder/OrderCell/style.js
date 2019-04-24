@@ -3,7 +3,8 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 const styles = EStyleSheet.create({
   container: {
     backgroundColor: '#fff',
-    marginTop: '20rem'
+    marginTop: '20rem',
+    paddingTop: '30rem'
   },
   order: {
     fontSize: '35rem',
@@ -15,7 +16,7 @@ const styles = EStyleSheet.create({
     color: '$textColor'
   },
   time: {
-    fontSize: '35rem',
+    fontSize: '30rem',
     color: '$textColorSecondary'
   }
 });

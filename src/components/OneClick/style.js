@@ -6,7 +6,7 @@ const styles = EStyleSheet.create({
     height: '110rem'
   },
   orderId: {
-    paddingVertical: '5rem',
+    // paddingVertical: '5rem',
     paddingHorizontal: '20rem',
     borderColor: '$primaryColor',
     borderWidth: '1rem',

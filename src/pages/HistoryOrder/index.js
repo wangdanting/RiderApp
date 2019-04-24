@@ -17,7 +17,15 @@ class HistoryOrder extends PureComponent {
           <Image source={searchIcon} style={{ width: 15 }} resizeMode='contain' />
         </Flex>
       </TouchableOpacity>
-    )
+    ),
+    headerTitleStyle: {
+      textAlign: 'center',
+      flex: 1
+    },
+    headerStyle: {
+      borderBottomWidth: 0,
+      elevation: 0
+    }
   };
 
   render() {
