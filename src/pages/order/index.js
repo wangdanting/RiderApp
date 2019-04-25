@@ -5,9 +5,8 @@ import theme from '@/common/styles/variables';
 import EmptyOrder from '@/components/EmptyOrder';
 import Modal from '@/components/Modal';
 import Daigou from '@/components/Daigou';
-// import OrderList from './OrderList';
-// import OfflineTip from './OfflineTip';
-
+import OrderList from './orderList';
+// import OfflineTip from './offlineTip';
 import styles from './style';
 
 const headerLeft = require('./images/head_60.png');
@@ -65,7 +64,7 @@ class Order extends PureComponent {
           tabBarInactiveTextColor={$textColor}
         >
           <View style={{ flex: 1 }}>
-            {/* <OrderList /> */}
+            <OrderList />
             <Modal
               leftText='联系用户'
               rightText='确认接单'
@@ -76,13 +75,7 @@ class Order extends PureComponent {
               <Text style={styles.modalTxt}>接单前，请先联系用户，沟通核对用户要求？</Text>
               <Daigou />
             </Modal>
-            <Modal
-              leftText='确认'
-              rightText='取消'
-              highLightPosition='left'
-              title='撤销接单'
-              isVisible
-            >
+            <Modal leftText='确认' rightText='取消' highLightPosition='left' title='撤销接单'>
               <Text style={styles.modalTxt2}>是否确认撤销转单申请？</Text>
             </Modal>
           </View>

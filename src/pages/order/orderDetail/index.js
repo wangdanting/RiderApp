@@ -7,7 +7,7 @@ import Steps from '@/components/Steps';
 import Daigou from '@/components/Daigou';
 import DescriptionList from '@/components/DescriptionList';
 import OneClick from '@/components/OneClick';
-// import Contact from './Contact';
+import Contact from './contact';
 import styles from './style';
 
 class OrderDetail extends PureComponent {
@@ -43,7 +43,7 @@ class OrderDetail extends PureComponent {
           <OneClick />
           <AddressInfo quInfo={quInfo} songInfo={songInfo} />
           <Daigou />
-          {/* <Contact /> */}
+          <Contact />
         </View>
         <Steps />
         <DescriptionList />

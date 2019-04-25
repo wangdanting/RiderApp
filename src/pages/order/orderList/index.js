@@ -1,12 +1,16 @@
 import React, { PureComponent } from 'react';
 import { View } from 'react-native';
-// import OrderItem from './OrderItem';
+import OrderItem from './orderItem';
 
 class OrderList extends PureComponent {
   abc = () => {};
 
   render() {
-    return <View>{/* <OrderItem /> */}</View>;
+    return (
+      <View>
+        <OrderItem />
+      </View>
+    );
   }
 }
 
