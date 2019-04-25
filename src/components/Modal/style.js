@@ -13,7 +13,8 @@ const styles = EStyleSheet.create({
     color: '$headingColor'
   },
   content: {
-    paddingBottom: '180rem'
+    paddingBottom: '100rem',
+    paddingHorizontal: '20rem'
   },
   btnGroup: {
     position: 'absolute',
@@ -33,6 +34,17 @@ const styles = EStyleSheet.create({
   },
   loading: {
     paddingRight: '20rem'
+  },
+  close: {
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    width: '80rem',
+    height: '80rem'
+  },
+  closeIcon: {
+    width: '40rem',
+    height: '40rem'
   }
 });
 

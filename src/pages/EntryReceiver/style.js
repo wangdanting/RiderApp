@@ -44,6 +44,10 @@ const styles = EStyleSheet.create({
     borderTopWidth: '1rem',
     borderRightWidth: '1rem',
     transform: [{ rotate: '45deg' }]
+  },
+  modal: {
+    textAlign: 'center',
+    color: '$headingColor'
   }
 });
 

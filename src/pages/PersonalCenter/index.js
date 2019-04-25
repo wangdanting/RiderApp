@@ -6,8 +6,8 @@ import theme from '@/common/styles/variables';
 import Modal from '@/components/Modal';
 import { request } from '@/utils';
 import styles from './style';
-import Record from './record';
-import OperateList from './operateList';
+import Record from './Record';
+import OperateList from './OperateList';
 import outIcon from './images/ic_out.png';
 
 const { $primaryColor, $textColorSecondary } = theme;

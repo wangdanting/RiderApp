@@ -3,13 +3,16 @@ import { Text, View, SafeAreaView, TouchableOpacity, Image } from 'react-native'
 import { Tabs, Badge } from '@ant-design/react-native';
 import theme from '@/common/styles/variables';
 import EmptyOrder from '@/components/EmptyOrder';
-import OrderList from './orderList';
-// import OfflineTip from './offlineTip';
+import Modal from '@/components/Modal';
+import Daigou from '@/components/Daigou';
+// import OrderList from './OrderList';
+// import OfflineTip from './OfflineTip';
 
 import styles from './style';
 
 const headerLeft = require('./images/head_60.png');
 const topNotice = require('./images/top_notice.png');
+const taskIcon = require('./images/float_task.png');
 
 const { $headingColor, $textColor } = theme;
 
@@ -62,7 +65,26 @@ class Order extends PureComponent {
           tabBarInactiveTextColor={$textColor}
         >
           <View style={{ flex: 1 }}>
-            <OrderList />
+            {/* <OrderList /> */}
+            <Modal
+              leftText='联系用户'
+              rightText='确认接单'
+              highLightPosition='right'
+              title='接单'
+              isShowClose
+            >
+              <Text style={styles.modalTxt}>接单前，请先联系用户，沟通核对用户要求？</Text>
+              <Daigou />
+            </Modal>
+            <Modal
+              leftText='确认'
+              rightText='取消'
+              highLightPosition='left'
+              title='撤销接单'
+              isVisible
+            >
+              <Text style={styles.modalTxt2}>是否确认撤销转单申请？</Text>
+            </Modal>
           </View>
           <View>
             <EmptyOrder />
@@ -74,6 +96,11 @@ class Order extends PureComponent {
             <Text>Content of Third Tab</Text>
           </View>
         </Tabs>
+        <View style={styles.task}>
+          <Badge text={9} size='large'>
+            <Image source={taskIcon} style={styles.taskImg} />
+          </Badge>
+        </View>
         {/* <OfflineTip /> */}
       </SafeAreaView>
     );

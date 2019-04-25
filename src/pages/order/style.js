@@ -7,6 +7,26 @@ const styles = EStyleSheet.create({
   },
   tabBarUnderlineStyle: {
     backgroundColor: '$primaryColor'
+  },
+  taskImg: {
+    right: '-20rem',
+    width: '80rem',
+    height: '160rem'
+  },
+  task: {
+    position: 'absolute',
+    top: '1000rem',
+    right: '50rem'
+  },
+  modalTxt: {
+    marginBottom: '30rem',
+    color: '$textColor',
+    textAlign: 'center'
+  },
+  modalTxt2: {
+    marginBottom: '70rem',
+    color: '$textColor',
+    textAlign: 'center'
   }
 });
 

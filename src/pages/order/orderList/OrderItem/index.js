@@ -4,7 +4,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import StatusBar from '@/components/StatusBar';
 import Tag from '@/components/Tag';
 import AddressInfo from '@/components/AddressInfo';
-import Button from '@/components/Button';
+// import Button from '@/components/Button';
 
 class OrderItem extends PureComponent {
   abc = () => {};
@@ -23,7 +23,7 @@ class OrderItem extends PureComponent {
         <StatusBar date='14-29' time='14:20' status='前取件' money='8.5' />
         <Tag />
         <AddressInfo quInfo={quInfo} songInfo={songInfo} />
-        <Button />
+        {/* <Button /> */}
         <Text style={styles.orderId}>订单号 123</Text>
       </View>
     );

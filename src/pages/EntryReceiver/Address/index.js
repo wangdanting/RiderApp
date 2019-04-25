@@ -6,7 +6,15 @@ import styles from './style';
 
 class Address extends PureComponent {
   static navigationOptions = {
-    title: '选择收货人地区'
+    title: '选择收货人地区',
+    headerTitleStyle: {
+      textAlign: 'center',
+      flex: 1
+    },
+    headerStyle: {
+      borderBottomWidth: 0,
+      elevation: 0
+    }
   };
 
   render() {

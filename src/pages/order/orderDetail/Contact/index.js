@@ -4,8 +4,8 @@ import { Flex } from '@ant-design/react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import Divider from '@/components/Divider';
 
-const shopIcon = require('./images/contact_shop.png');
-const userIcon = require('./images/contact_user.png');
+const shopIcon = require('../images/contact_shop.png');
+const userIcon = require('../images/contact_user.png');
 
 class Contact extends PureComponent {
   abc = () => {};

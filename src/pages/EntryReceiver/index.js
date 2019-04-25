@@ -1,16 +1,25 @@
 import React, { PureComponent } from 'react';
 import { View, Text, Image, TextInput } from 'react-native';
 import { Flex } from '@ant-design/react-native';
+import Modal from '@/components/Modal';
 import commonStyles from '@/common/styles/commonStyles';
 import Button from '@/components/Button';
-import HistoryReceiver from './history-receiver';
+import HistoryReceiver from './HistoryReceiver';
 import styles from './style';
 
 const shouIcon = require('./images/ic_shou.png');
 
 class entryReceiver extends PureComponent {
   static navigationOptions = {
-    title: '录入收货人信息'
+    title: '录入收货人信息',
+    headerTitleStyle: {
+      textAlign: 'center',
+      flex: 1
+    },
+    headerStyle: {
+      borderBottomWidth: 0,
+      elevation: 0
+    }
   };
 
   render() {
@@ -40,6 +49,15 @@ class entryReceiver extends PureComponent {
           </View>
         </Flex>
         <Button title='保存' type='primary' style={styles.btn} />
+        <Modal
+          leftText='返回修改'
+          rightText='确认保存'
+          highLightPosition='right'
+          title='收货人信息'
+          isVisible={false}
+        >
+          <Text style={styles.modal}>提交保存前，请确认“收货人信息”录入是否正确！</Text>
+        </Modal>
       </View>
     );
   }

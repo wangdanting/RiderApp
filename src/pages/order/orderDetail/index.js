@@ -6,13 +6,21 @@ import AddressInfo from '@/components/AddressInfo';
 import Steps from '@/components/Steps';
 import Daigou from '@/components/Daigou';
 import DescriptionList from '@/components/DescriptionList';
-import OneClick from '../../../components/OneClick';
-import Contact from './contact';
+import OneClick from '@/components/OneClick';
+// import Contact from './Contact';
 import styles from './style';
 
 class OrderDetail extends PureComponent {
   static navigationOptions = {
-    title: '订单详情'
+    title: '订单详情',
+    headerTitleStyle: {
+      textAlign: 'center',
+      flex: 1
+    },
+    headerStyle: {
+      borderBottomWidth: 0,
+      elevation: 0
+    }
   };
 
   render() {
@@ -35,7 +43,7 @@ class OrderDetail extends PureComponent {
           <OneClick />
           <AddressInfo quInfo={quInfo} songInfo={songInfo} />
           <Daigou />
-          <Contact />
+          {/* <Contact /> */}
         </View>
         <Steps />
         <DescriptionList />

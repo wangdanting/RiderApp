@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react';
-import { View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, Text, TouchableOpacity, ActivityIndicator, Image } from 'react-native';
 import { Flex } from '@ant-design/react-native';
 import Modal from 'react-native-modal';
 import PropTypes from 'prop-types';
 import commonStyles from '@/common/styles/commonStyles';
 import Divider from '../Divider';
 import styles from './style';
+
+const closeIcon = require('../../common/images/ic_close_30.png');
 
 class ModalScreen extends PureComponent {
   static propTypes = {
@@ -18,7 +20,8 @@ class ModalScreen extends PureComponent {
     rightText: PropTypes.string, // 右边按钮文字
     rightConfirmLoading: PropTypes.bool, // 右边按钮loading
     onRight: PropTypes.func, // 右边按钮点击回调
-    highLightPosition: PropTypes.oneOf(['left', 'right']) // 高亮的位置
+    highLightPosition: PropTypes.oneOf(['left', 'right']), // 高亮的位置
+    isShowClose: PropTypes.bool // 是否显示关闭按钮
   };
 
   static defaultProps = {
@@ -30,7 +33,8 @@ class ModalScreen extends PureComponent {
     rightText: '',
     rightConfirmLoading: false,
     onRight: () => {},
-    highLightPosition: 'right'
+    highLightPosition: 'right',
+    isShowClose: false
   };
 
   render() {
@@ -44,11 +48,19 @@ class ModalScreen extends PureComponent {
       leftText,
       rightText,
       leftConfirmLoading,
-      rightConfirmLoading
+      rightConfirmLoading,
+      isShowClose
     } = this.props;
     return (
       <Modal isVisible={isVisible}>
         <View style={styles.modal}>
+          {isShowClose ? (
+            <TouchableOpacity>
+              <Flex style={styles.close} justify='center'>
+                <Image source={closeIcon} style={styles.closeIcon} />
+              </Flex>
+            </TouchableOpacity>
+          ) : null}
           <Text style={styles.title}>{title}</Text>
           <View style={styles.content}>{children}</View>
           <Flex style={[styles.btnGroup, commonStyles.borderTop]}>
