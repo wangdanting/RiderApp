@@ -18,6 +18,7 @@ module.exports = {
   },
   plugins: ['prettier', 'react'],
   rules: {
+    'no-console': ['error', { allow: ['warn', 'error'] }],
     'react/jsx-filename-extension': [1, { extensions: ['.js'] }],
     'import/no-unresolved': [2, { ignore: ['^@/'] }],
     'no-empty': 'off',

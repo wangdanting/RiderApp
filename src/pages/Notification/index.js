@@ -5,7 +5,15 @@ import styles from './style';
 
 class Notification extends PureComponent {
   static navigationOptions = {
-    title: '消息通知'
+    title: '消息通知',
+    headerTitleStyle: {
+      textAlign: 'center',
+      flex: 1
+    },
+    headerStyle: {
+      borderBottomWidth: 0,
+      elevation: 0
+    }
   };
 
   render() {

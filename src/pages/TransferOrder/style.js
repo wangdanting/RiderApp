@@ -36,6 +36,14 @@ const styles = EStyleSheet.create({
   mobile: {
     fontSize: '30rem',
     color: '$textColor'
+  },
+  modalTxt: {
+    color: '$headingColor'
+  },
+  modalActive: {
+    color: '$primaryColor',
+    fontWeight: '900',
+    paddingHorizontal: '10rem'
   }
 });
 
