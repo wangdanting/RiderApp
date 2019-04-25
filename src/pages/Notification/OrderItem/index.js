@@ -38,7 +38,7 @@ const OrderItem = () => (
         </Flex>
         <AddressInfo quInfo={quInfo} songInfo={songInfo} />
         <Daigou />
-        <TouchableOpacity style={styles.bottom}>
+        <TouchableOpacity style={[styles.bottom, commonStyles.borderTop]}>
           <Flex>
             <Text style={styles.arrowTxt}>展开</Text>
             <View style={styles.arrow} />

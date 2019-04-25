@@ -11,7 +11,15 @@ const { $primaryColor, $textColor } = theme;
 
 class TaskList extends PureComponent {
   static navigationOptions = {
-    title: '任务列表'
+    title: '任务列表',
+    headerTitleStyle: {
+      textAlign: 'center',
+      flex: 1
+    },
+    headerStyle: {
+      borderBottomWidth: 0,
+      elevation: 0
+    }
   };
 
   render() {

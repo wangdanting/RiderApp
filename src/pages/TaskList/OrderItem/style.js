@@ -19,6 +19,10 @@ const styles = EStyleSheet.create({
   orderId: {
     color: '$textColor',
     lineHeight: '40rem'
+  },
+  name: {
+    color: '$primaryColor',
+    fontWeight: '900'
   }
 });
 
