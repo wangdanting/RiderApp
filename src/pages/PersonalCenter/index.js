@@ -1,5 +1,13 @@
 import React, { PureComponent } from 'react';
-import { SafeAreaView, View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  RefreshControl
+} from 'react-native';
 import SwitchSelector from 'react-native-switch-selector';
 import PropTypes from 'prop-types';
 import { Flex } from '@ant-design/react-native';
@@ -37,7 +45,8 @@ class personalCenter extends PureComponent {
 
   state = {
     userInfo: {}, // 用户信息
-    isShowModal: false // 是否显示modal
+    isShowModal: false, // 是否显示modal
+    isRefreshing: false // 下拉刷新状态
   };
 
   componentDidMount() {
@@ -116,10 +125,15 @@ class personalCenter extends PureComponent {
   };
 
   render() {
-    const { userInfo, isShowModal } = this.state;
+    const { userInfo, isShowModal, isRefreshing } = this.state;
     const options = [{ label: '开工', value: 'online' }, { label: '收工', value: 'offline' }];
     return (
-      <ScrollView style={styles.page}>
+      <ScrollView
+        style={styles.page}
+        refreshControl={
+          <RefreshControl refreshing={isRefreshing} onRefresh={this.getCourierInfo} />
+        }
+      >
         <SafeAreaView>
           <Flex style={styles.block} direction='column' justify='center'>
             <Image source={headImg} style={styles.headImg} />

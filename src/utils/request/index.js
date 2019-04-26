@@ -3,6 +3,8 @@ import config from '@/config';
 import Storage from '../storage';
 import { handleNoCommontError, handleCommonError } from './errorHandle';
 import { md5, appKey } from '@/utils';
+import { store } from '@/index';
+import setLoading from '@/actions/global';
 
 const { host, urlPrefix, authKey, errorMsg } = config;
 
@@ -30,12 +32,17 @@ const request = async (url, options = {}) => {
 
   const configs = { ...defaultOptions, ...newOptions };
   const newUrl = `${host}${options.urlPrefix || urlPrefix}${url}`;
+  // 开始loading
+  if (!options.noLoading) {
+    store.dispatch(setLoading(true));
+  }
   return axios(newUrl, configs);
 };
 
 // 添加响应拦截器
 axios.interceptors.response.use(
   response => {
+    store.dispatch(setLoading(false));
     return response.data;
   },
   error => {
@@ -51,6 +58,7 @@ axios.interceptors.response.use(
         handleNoCommontError(data);
       }
     }
+    store.dispatch(setLoading(false));
     return Promise.reject(error);
   }
 );
