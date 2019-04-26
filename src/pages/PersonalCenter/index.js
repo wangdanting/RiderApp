@@ -26,7 +26,8 @@ class personalCenter extends PureComponent {
   };
 
   state = {
-    userInfo: {}
+    userInfo: {}, // 用户信息
+    isShowModal: false // 是否显示modal
   };
 
   componentDidMount() {
@@ -44,13 +45,59 @@ class personalCenter extends PureComponent {
     });
   };
 
+  /**
+   *  设置员工状态
+   */
   changeWorkStatus = value => {
     if (value === 'offline') {
+      this.setState({
+        isShowModal: true
+      });
+    }
+    if (value === 'online') {
+      this.setCourierOnline();
     }
   };
 
+  /**
+   *  快递员上班
+   */
+  setCourierOnline = () => {
+    request('/courier/online', {
+      method: 'put'
+    }).then(data => {
+      const { result } = data;
+      if (result) {
+        this.closeModal();
+      }
+    });
+  };
+
+  /**
+   *  快递员下班
+   */
+  setCourierOffline = () => {
+    request('/courier/offline', {
+      method: 'put'
+    }).then(data => {
+      const { result } = data;
+      if (result) {
+        this.closeModal();
+      }
+    });
+  };
+
+  /**
+   *  关闭
+   */
+  closeModal = () => {
+    this.setState({
+      isShowModal: false
+    });
+  };
+
   render() {
-    const { userInfo } = this.state;
+    const { userInfo, isShowModal } = this.state;
     const options = [{ label: '开工', value: 'online' }, { label: '收工', value: 'offline' }];
     return (
       <ScrollView style={styles.page}>
@@ -62,7 +109,7 @@ class personalCenter extends PureComponent {
             <View style={styles.switch}>
               <SwitchSelector
                 options={options}
-                initial={0}
+                initial={userInfo.onlineState ? 0 : 1}
                 buttonColor={$primaryColor}
                 fontSize={14}
                 backgroundColor='#efefef'
@@ -81,7 +128,15 @@ class personalCenter extends PureComponent {
           </Flex>
           <Text style={styles.version}>当前版本v1.0.0</Text>
         </SafeAreaView>
-        <Modal leftText='确定' rightText='取消' highLightPosition='left' title='收工' isVisible>
+        <Modal
+          leftText='确定'
+          rightText='取消'
+          highLightPosition='left'
+          title='收工'
+          isVisible={isShowModal}
+          onLeft={this.setCourierOffline}
+          onRight={this.closeModal}
+        >
           <Text style={styles.modal}>将无法接受新的配送订单，确认收工？</Text>
         </Modal>
       </ScrollView>

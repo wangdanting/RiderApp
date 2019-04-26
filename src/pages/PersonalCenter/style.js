@@ -50,7 +50,8 @@ const styles = EStyleSheet.create({
     lineHeight: '110rem'
   },
   modal: {
-    textAlign: 'center'
+    textAlign: 'center',
+    marginBottom: '60rem'
   }
 });
 

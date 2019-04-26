@@ -4,7 +4,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import { Button } from '@ant-design/react-native';
 import PropTypes from 'prop-types';
 
-const img = require('./images/pic_open.png');
+const img = require('../images/pic_open.png');
 
 const OfflineTip = ({ onOnLine }) => (
   <View style={styles.container}>

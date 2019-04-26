@@ -21,7 +21,10 @@ module.exports = {
   rules: {
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'react/jsx-filename-extension': [1, { extensions: ['.js'] }],
-    'import/no-unresolved': [2, { ignore: ['^@/'] }],
+    'import/no-unresolved': [
+      2,
+      { ignore: ['^@/'], commonjs: true, amd: true, caseSensitive: false }
+    ],
     'no-empty': 'off',
     'no-use-before-define': ['error', { variables: false }]
   },
