@@ -1,14 +1,18 @@
 import React, { PureComponent } from 'react';
-import { SafeAreaView, View, Text, Image, ScrollView } from 'react-native';
+import { SafeAreaView, View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
 import SwitchSelector from 'react-native-switch-selector';
+import PropTypes from 'prop-types';
 import { Flex } from '@ant-design/react-native';
 import theme from '@/common/styles/variables';
 import Modal from '@/components/Modal';
-import { request } from '@/utils';
+import { request, Storage } from '@/utils';
 import styles from './style';
 import Record from './Record';
 import OperateList from './OperateList';
 import outIcon from './images/ic_out.png';
+import config from '@/config';
+
+const { authKey } = config;
 
 const { $primaryColor, $textColorSecondary } = theme;
 const headImg = require('./images/head.png');
@@ -23,6 +27,12 @@ class personalCenter extends PureComponent {
       borderBottomWidth: 0,
       elevation: 0
     }
+  };
+
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func
+    }).isRequired
   };
 
   state = {
@@ -96,6 +106,15 @@ class personalCenter extends PureComponent {
     });
   };
 
+  /**
+   *  退出登录
+   */
+  signOut = () => {
+    Storage.remove(authKey);
+    const { navigation } = this.props;
+    navigation.navigate('Auth');
+  };
+
   render() {
     const { userInfo, isShowModal } = this.state;
     const options = [{ label: '开工', value: 'online' }, { label: '收工', value: 'offline' }];
@@ -122,10 +141,13 @@ class personalCenter extends PureComponent {
             <Record data={userInfo} />
           </Flex>
           <OperateList />
-          <Flex justify='between' style={styles.signOut}>
-            <Text style={styles.label}>退出登录</Text>
-            <Image source={outIcon} style={styles.icon} />
-          </Flex>
+          <TouchableOpacity onPress={this.signOut}>
+            <Flex justify='between' style={styles.signOut}>
+              <Text style={styles.label}>退出登录</Text>
+              <Image source={outIcon} style={styles.icon} />
+            </Flex>
+          </TouchableOpacity>
+
           <Text style={styles.version}>当前版本v1.0.0</Text>
         </SafeAreaView>
         <Modal
