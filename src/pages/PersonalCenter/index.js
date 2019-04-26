@@ -57,9 +57,15 @@ class personalCenter extends PureComponent {
    *  获取配送员信息
    */
   getCourierInfo = () => {
-    request('/courier/fight_today').then(data => {
+    this.setState({
+      isRefreshing: true
+    });
+    request('/courier/fight_today', {
+      noLoading: true
+    }).then(data => {
       this.setState({
-        userInfo: data
+        userInfo: data,
+        isRefreshing: false
       });
     });
   };
