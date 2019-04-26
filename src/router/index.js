@@ -1,8 +1,8 @@
 import { createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import AuthLoadingScreen from '@/pages/auth-loading';
 import Login from '@/pages/Login';
-import Order from '@/pages/order';
-import OrderDetail from '@/pages/order/orderDetail';
+import Order from '@/pages/Order';
+import OrderDetail from '@/pages/Order/orderDetail';
 import Protocol from '@/pages/Login/Protocol';
 import PersonalCenter from '@/pages/PersonalCenter';
 import TransferOrder from '@/pages/TransferOrder';
