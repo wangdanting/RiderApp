@@ -40,7 +40,7 @@ class HistoryOrder extends PureComponent {
       start: '',
       end: '',
       page: 0,
-      size: 10
+      size: 3
     }
   };
 
@@ -122,6 +122,15 @@ class HistoryOrder extends PureComponent {
     }
   };
 
+  /**
+   * 自定义日期
+   */
+  setCustomTime = ({ startDate, endDate }) => {
+    const { queryData: prev } = this.state;
+    const queryData = Object.assign({}, prev, { start: startDate, end: endDate });
+    this.handleSearch(queryData);
+  };
+
   render() {
     const { isShowTimePanel, activeTime, data, courierSettleTotalAmount } = this.state;
     return (
@@ -163,7 +172,7 @@ class HistoryOrder extends PureComponent {
             <TouchableOpacity onPress={this.hideTimePanel} style={styles.layer} />
           </Fragment>
         ) : null}
-        {activeTime === 'custom' ? <DateRangePicker /> : null}
+        {activeTime === 'custom' ? <DateRangePicker handleChange={this.setCustomTime} /> : null}
         {Boolean(activeTime) && <OrderList data={data} />}
         {!activeTime && <Text style={styles.tip}>请选择需要查询的日期</Text>}
       </View>

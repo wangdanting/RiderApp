@@ -38,6 +38,8 @@ const request = async (url, options = {}) => {
   }
   // eslint-disable-next-line
   console.log(newUrl);
+  // eslint-disable-next-line
+  console.log(configs, 'configs');
   return axios(newUrl, configs);
 };
 

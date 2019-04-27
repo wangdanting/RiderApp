@@ -2,12 +2,21 @@ import React, { PureComponent } from 'react';
 import { Text, Image, TouchableOpacity } from 'react-native';
 import { Flex } from '@ant-design/react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
+import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 import styles from './style';
 
 const icon = require('./images/date_gray.png');
 
 class DateRangePicker extends PureComponent {
+  static propTypes = {
+    handleChange: PropTypes.func // 选择日期后的回调
+  };
+
+  static defaultProps = {
+    handleChange: () => {}
+  };
+
   state = {
     activeType: 'startDate',
     isVisible: false,
@@ -17,10 +26,26 @@ class DateRangePicker extends PureComponent {
 
   handleOk = date => {
     const { activeType } = this.state;
-    this.setState({
-      [activeType]: dayjs(date).format('YYYY年MM月DD日'),
-      isVisible: false
-    });
+    this.setState(
+      {
+        [activeType]: date,
+        isVisible: false
+      },
+      () => {
+        const { handleChange } = this.props;
+        const { startDate, endDate } = this.state;
+        if (startDate && endDate) {
+          handleChange({
+            startDate: dayjs(startDate)
+              .startOf('day')
+              .valueOf(),
+            endDate: dayjs(endDate)
+              .endOf('day')
+              .valueOf()
+          });
+        }
+      }
+    );
   };
 
   handleCancel = () => {
@@ -44,7 +69,7 @@ class DateRangePicker extends PureComponent {
           <Flex justify='center'>
             <Image source={icon} style={styles.icon} />
             <Text style={[styles.txt, startDate ? '' : styles.placehodler]}>
-              {startDate || '选择开始日期'}
+              {startDate ? dayjs(startDate).format('YYYY年MM月DD日') : '选择开始日期'}
             </Text>
           </Flex>
         </TouchableOpacity>
@@ -53,7 +78,7 @@ class DateRangePicker extends PureComponent {
           <Flex justify='center'>
             <Image source={icon} style={styles.icon} />
             <Text style={[styles.txt, endDate ? '' : styles.placehodler]}>
-              {endDate || '选择结束日期'}
+              {endDate ? dayjs(endDate).format('YYYY年MM月DD日') : '选择结束日期'}
             </Text>
           </Flex>
         </TouchableOpacity>
