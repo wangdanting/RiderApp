@@ -23,6 +23,7 @@ const AuthStack = createStackNavigator(
 );
 
 const AppStack = createStackNavigator({
+  HistoryOrder,
   PersonalCenter,
   Order,
   Address,
@@ -31,7 +32,6 @@ const AppStack = createStackNavigator({
   TransferOrder,
   Notification,
   TaskList,
-  HistoryOrder,
   HistoryOrderDetail,
   HistoryOrderSearch,
   Record,

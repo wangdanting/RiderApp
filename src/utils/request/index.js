@@ -36,6 +36,8 @@ const request = async (url, options = {}) => {
   if (!options.noLoading) {
     store.dispatch(setLoading(true));
   }
+  // eslint-disable-next-line
+  console.log(newUrl);
   return axios(newUrl, configs);
 };
 

@@ -162,7 +162,8 @@ class Login extends PureComponent {
     });
     request('/sessions/create_token', {
       method: 'post',
-      data: params
+      data: params,
+      noLoading: true
     }).then(({ result }) => {
       Storage.set(authKey, result);
       this.setState({

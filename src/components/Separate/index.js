@@ -7,14 +7,16 @@ import Divider from '@/components/Divider';
 import styles from './style';
 
 const Separate = ({ children }) => {
-  const inner = children.map((item, index, arr) => {
-    return (
-      <Fragment key={item.props.title}>
-        {item}
-        {index !== arr.length - 1 && <Divider type='vertical' height='60rem' />}
-      </Fragment>
-    );
-  });
+  const inner = children
+    .filter(item => item)
+    .map((item, index, arr) => {
+      return (
+        <Fragment key={item.props.title}>
+          {item}
+          {index !== arr.length - 1 && <Divider type='vertical' height='60rem' />}
+        </Fragment>
+      );
+    });
   return <Flex style={[styles.container, commonStyles.borderTop]}>{inner}</Flex>;
 };
 
@@ -29,8 +31,8 @@ Separate.defaultProps = {
 };
 
 SeparateItem.propTypes = {
-  title: PropTypes.string,
-  color: PropTypes.string
+  title: PropTypes.string, // 显示的内容
+  color: PropTypes.string // 内容颜色
 };
 
 SeparateItem.defaultProps = {
