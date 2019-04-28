@@ -10,6 +10,7 @@ import DescriptionList from '@/components/DescriptionList';
 import styles from './style';
 
 const { SeparateItem } = Separate;
+const { Description } = DescriptionList;
 const abnormalIcon = require('./images/sign_abnormal.png');
 
 const OrderDetail = ({ navigation }) => {
@@ -52,7 +53,14 @@ const OrderDetail = ({ navigation }) => {
         finishOnTime={item.finishOnTime}
         finishTime={item.finishTime}
       />
-      <DescriptionList />
+      <DescriptionList title='订单信息'>
+        <Description label='订单类别' value={item.orderWayName} />
+        {item.orderWay === 'applet-fast' ? (
+          <Description label='一键下单单号' value={item.thirdOrderViewId} />
+        ) : (
+          <Description label='订单号码' value={item.expressOrderId} />
+        )}
+      </DescriptionList>
     </ScrollView>
   );
 };
