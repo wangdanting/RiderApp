@@ -63,7 +63,7 @@ class FlatListCom extends PureComponent {
         onEndReachedThreshold={0.1}
         onRefresh={this.onRefresh}
         refreshing={refreshing}
-        ListFooterComponent={ListFooterComponent}
+        ListFooterComponent={data.length ? ListFooterComponent : null}
       />
     );
   }

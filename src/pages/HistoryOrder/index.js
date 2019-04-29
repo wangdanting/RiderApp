@@ -17,6 +17,7 @@ const goToSearch = () => {
 class HistoryOrder extends PureComponent {
   static navigationOptions = {
     title: '历史订单',
+    headerBackTitle: null,
     headerRight: (
       <TouchableOpacity onPress={goToSearch}>
         <Flex style={{ height: '100%', width: 30 }}>
