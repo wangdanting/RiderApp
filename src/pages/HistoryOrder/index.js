@@ -34,14 +34,15 @@ class HistoryOrder extends PureComponent {
     isShowTimePanel: false, // 是否展示选择日期面板
     activeTime: '', // 激活的日期
     data: [], // 搜索结果
-    // dataTotal: 0, // 总的结果条数
+    dataTotal: 0, // 总的结果条数
     courierSettleTotalAmount: 0, // 共计
     queryData: {
       start: '',
       end: '',
       page: 0,
-      size: 3
-    }
+      size: 10
+    },
+    refreshing: false // 下拉loading
   };
 
   /**
@@ -87,18 +88,23 @@ class HistoryOrder extends PureComponent {
    */
   // eslint-disable-next-line
   handleSearch = (queryData = this.state.queryData) => {
+    const { data } = this.state;
+    this.setState({
+      queryData
+    });
     request('/express_orders/v2019/courier_histoty', {
       params: queryData
-    }).then(data => {
+    }).then(result => {
       const {
         results,
-        // totalCount,
+        totalCount,
         totalReport: { courierSettleTotalAmount = 0 }
-      } = data;
+      } = result;
       this.setState({
-        data: results,
-        // dataTotal: totalCount,
-        courierSettleTotalAmount
+        data: queryData.page === 0 ? results : [...data, ...results],
+        dataTotal: totalCount,
+        courierSettleTotalAmount,
+        refreshing: false
       });
     });
   };
@@ -132,7 +138,15 @@ class HistoryOrder extends PureComponent {
   };
 
   render() {
-    const { isShowTimePanel, activeTime, data, courierSettleTotalAmount } = this.state;
+    const {
+      isShowTimePanel,
+      activeTime,
+      data,
+      courierSettleTotalAmount,
+      queryData,
+      refreshing,
+      dataTotal
+    } = this.state;
     return (
       <View style={styles.page}>
         <Flex style={styles.top} justify='between'>
@@ -173,7 +187,15 @@ class HistoryOrder extends PureComponent {
           </Fragment>
         ) : null}
         {activeTime === 'custom' ? <DateRangePicker handleChange={this.setCustomTime} /> : null}
-        {Boolean(activeTime) && <OrderList data={data} />}
+        {Boolean(activeTime) && (
+          <OrderList
+            data={data}
+            handleSearch={this.handleSearch}
+            queryData={queryData}
+            refreshing={refreshing}
+            dataTotal={dataTotal}
+          />
+        )}
         {!activeTime && <Text style={styles.tip}>请选择需要查询的日期</Text>}
       </View>
     );
