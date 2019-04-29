@@ -2,7 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Flex } from '@ant-design/react-native';
 import dayjs from 'dayjs';
-import { request } from '@/utils';
+import { request, NavigationService } from '@/utils';
 import styles from './style';
 import DateRangePicker from '@/components/DateRangePicker';
 import OrderList from './OrderList';
@@ -10,11 +10,15 @@ import OrderList from './OrderList';
 const searchIcon = require('./images/top_search.png');
 const triangleIcon = require('./images/day_triangle.png');
 
+const goToSearch = () => {
+  NavigationService.navigate('HistoryOrderSearch');
+};
+
 class HistoryOrder extends PureComponent {
   static navigationOptions = {
     title: '历史订单',
     headerRight: (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={goToSearch}>
         <Flex style={{ height: '100%', width: 30 }}>
           <Image source={searchIcon} style={{ width: 15 }} resizeMode='contain' />
         </Flex>

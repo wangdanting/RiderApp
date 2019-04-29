@@ -2,6 +2,7 @@ import forge from 'node-forge';
 
 export { default as request } from './request';
 export { default as Storage } from './storage';
+export { default as NavigationService } from './navigationService';
 
 /**
  * md5转换

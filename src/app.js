@@ -4,11 +4,16 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import AppContainer from './router/index';
 import PageLoading from './components/PageLoading';
+import { NavigationService } from './utils';
 
 const App = ({ loading }) => (
   <Fragment>
     <AntProvider>
-      <AppContainer />
+      <AppContainer
+        ref={navigatorRef => {
+          NavigationService.setTopLevelNavigator(navigatorRef);
+        }}
+      />
     </AntProvider>
     <PageLoading loading={loading} />
   </Fragment>
