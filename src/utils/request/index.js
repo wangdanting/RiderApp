@@ -63,6 +63,7 @@ axios.interceptors.response.use(
       }
     }
     store.dispatch(setLoading(false));
+    // eslint-disable-next-line compat/compat
     return Promise.reject(error);
   }
 );

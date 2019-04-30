@@ -71,5 +71,10 @@
     "hooks": {
       "pre-commit": "yarn lint-staged"
     }
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 11"
+  ]
 }

@@ -5,7 +5,7 @@ module.exports = {
     node: true,
     es6: true
   },
-  extends: ['airbnb', 'plugin:prettier/recommended'],
+  extends: ['airbnb', 'plugin:prettier/recommended', 'plugin:compat/recommended'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
@@ -17,7 +17,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  plugins: ['prettier', 'react'],
+  plugins: ['prettier', 'react', 'compat'],
   rules: {
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'react/jsx-filename-extension': [1, { extensions: ['.js'] }],
@@ -26,6 +26,6 @@ module.exports = {
     'no-use-before-define': ['error', { variables: false }]
   },
   settings: {
-    polyfills: ['promises']
+    polyfills: ['fetch', 'promises']
   }
 };
