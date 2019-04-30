@@ -23,10 +23,10 @@ const AuthStack = createStackNavigator(
 );
 
 const AppStack = createStackNavigator({
+  Order,
   HistoryOrder,
   HistoryOrderSearch,
   PersonalCenter,
-  Order,
   Address,
   EntryReceiver,
   OrderDetail,

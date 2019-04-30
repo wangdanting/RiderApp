@@ -1,12 +1,10 @@
 import React, { PureComponent } from 'react';
-import { Text, View, SafeAreaView, TouchableOpacity, Image } from 'react-native';
+import { View, SafeAreaView, TouchableOpacity, Image } from 'react-native';
 import { Tabs, Badge } from '@ant-design/react-native';
 import theme from '@/common/styles/variables';
-import EmptyOrder from '@/components/EmptyOrder';
-import Modal from '@/components/Modal';
-import Daigou from '@/components/Daigou';
-import OrderList from './orderList';
-// import OfflineTip from './offlineTip';
+import { NavigationService, request } from '@/utils';
+import OrderList from './OrderList';
+import OfflineTip from './OfflineTip';
 import styles from './style';
 
 const headerLeft = require('./images/head_60.png');
@@ -15,20 +13,32 @@ const taskIcon = require('./images/float_task.png');
 
 const { $headingColor, $textColor } = theme;
 
-const abc = () => {};
+/**
+ * 跳转个人中心
+ */
+const goToPersonalCenter = () => {
+  NavigationService.navigate('PersonalCenter');
+};
+
+/**
+ * 跳转信息通知
+ */
+const goToNotification = () => {
+  NavigationService.navigate('Notification');
+};
 
 class Order extends PureComponent {
   static navigationOptions = {
     title: '订单',
     headerLeft: (
-      <TouchableOpacity onPress={abc}>
+      <TouchableOpacity onPress={goToPersonalCenter}>
         <Image source={headerLeft} style={{ width: 30, height: 30 }} />
       </TouchableOpacity>
     ),
     headerRight: (
-      <TouchableOpacity onPress={abc}>
-        <Badge text={109} dot size='large'>
-          <Image source={topNotice} style={{ width: 30, height: 30 }} />
+      <TouchableOpacity onPress={goToNotification}>
+        <Badge text={109} dot>
+          <Image source={topNotice} style={{ width: 30, height: 30, right: -8 }} />
         </Badge>
       </TouchableOpacity>
     ),
@@ -48,12 +58,80 @@ class Order extends PureComponent {
     }
   };
 
+  state = {
+    onlineState: true, // 是否配送员上班
+    count: {
+      sending: 0,
+      waitAccep: 0,
+      waitFetch: 0,
+      waitWrite: 0
+    }
+  };
+
+  componentDidMount() {
+    this.getOnlineState();
+  }
+
+  /**
+   * 获取配送员是否上班
+   */
+  getOnlineState = () => {
+    request('/courier/fight_today').then(data => {
+      const { onlineState } = data;
+      this.setState({
+        onlineState
+      });
+      if (onlineState) {
+        this.getCountOrder();
+      }
+    });
+  };
+
+  /**
+   * 点击马上开工
+   */
+  onOnLine = () => {
+    request('/courier/online', {
+      method: 'put'
+    }).then(data => {
+      const { result } = data;
+      if (result) {
+        this.setState({
+          onlineState: true
+        });
+      }
+    });
+  };
+
+  /**
+   * 获取类型订单统计
+   */
+  getCountOrder = () => {
+    request('/express_orders/countorder', {
+      noLoading: true
+    }).then(({ result }) => {
+      const { sending, waitAccept, waitFetch, waitWrite } = result;
+      this.setState({
+        count: {
+          sending,
+          waitAccept,
+          waitFetch,
+          waitWrite
+        }
+      });
+    });
+  };
+
   render() {
+    const {
+      onlineState,
+      count: { sending = 0, waitAccept = 0, waitFetch = 0, waitWrite = 0 }
+    } = this.state;
     const tabs = [
-      { title: '待接单(0)' },
-      { title: '待录单(0)' },
-      { title: '待取件(0)' },
-      { title: '配送中(0)' }
+      { title: `待接单(${waitAccept})` },
+      { title: `待录单(${waitWrite})` },
+      { title: `待取件(${waitFetch})` },
+      { title: `配送中(${sending})` }
     ];
     return (
       <SafeAreaView style={styles.page}>
@@ -64,29 +142,16 @@ class Order extends PureComponent {
           tabBarInactiveTextColor={$textColor}
         >
           <View style={{ flex: 1 }}>
-            <OrderList />
-            <Modal
-              leftText='联系用户'
-              rightText='确认接单'
-              highLightPosition='right'
-              title='接单'
-              isShowClose
-            >
-              <Text style={styles.modalTxt}>接单前，请先联系用户，沟通核对用户要求？</Text>
-              <Daigou />
-            </Modal>
-            <Modal leftText='确认' rightText='取消' highLightPosition='left' title='撤销接单'>
-              <Text style={styles.modalTxt2}>是否确认撤销转单申请？</Text>
-            </Modal>
+            <OrderList status='wait_accept' />
           </View>
           <View>
-            <EmptyOrder />
+            <OrderList status='wait_write' />
           </View>
           <View>
-            <Text>Content of Third Tab</Text>
+            <OrderList status='wait_fetch' />
           </View>
           <View>
-            <Text>Content of Third Tab</Text>
+            <OrderList status='sending' />
           </View>
         </Tabs>
         <View style={styles.task}>
@@ -94,7 +159,7 @@ class Order extends PureComponent {
             <Image source={taskIcon} style={styles.taskImg} />
           </Badge>
         </View>
-        {/* <OfflineTip /> */}
+        {onlineState ? null : <OfflineTip onOnLine={this.onOnLine} />}
       </SafeAreaView>
     );
   }
