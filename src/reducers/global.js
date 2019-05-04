@@ -9,8 +9,28 @@ export const loading = (state = false, action) => {
   }
 };
 
+export const lng = (state = '', action) => {
+  switch (action.type) {
+    case 'SetLng':
+      return action.lng;
+    default:
+      return state;
+  }
+};
+
+export const lat = (state = '', action) => {
+  switch (action.type) {
+    case 'SetLat':
+      return action.lat;
+    default:
+      return state;
+  }
+};
+
 const global = combineReducers({
-  loading
+  loading,
+  lng,
+  lat
 });
 
 export default global;

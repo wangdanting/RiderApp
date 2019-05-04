@@ -1,10 +1,21 @@
 import React, { PureComponent } from 'react';
-import { View, SafeAreaView, TouchableOpacity, Image } from 'react-native';
+import { connect } from 'react-redux';
+import {
+  View,
+  SafeAreaView,
+  TouchableOpacity,
+  Image,
+  PermissionsAndroid,
+  Platform
+} from 'react-native';
+import Geolocation from 'react-native-geolocation-service';
+import PropTypes from 'prop-types';
 import { Tabs, Badge } from '@ant-design/react-native';
 import theme from '@/common/styles/variables';
 import { NavigationService, request } from '@/utils';
 import OrderList from './OrderList';
 import OfflineTip from './OfflineTip';
+import { setLng, setLat } from '@/actions/global';
 import styles from './style';
 
 const headerLeft = require('./images/head_60.png');
@@ -58,6 +69,10 @@ class Order extends PureComponent {
     }
   };
 
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired
+  };
+
   state = {
     onlineState: true, // 是否配送员上班
     count: {
@@ -70,7 +85,45 @@ class Order extends PureComponent {
 
   componentDidMount() {
     this.getOnlineState();
+    this.getCurrentPosition();
   }
+
+  /**
+   * 获取当前位置 (区分环境)
+   */
+  getCurrentPosition = async () => {
+    if (Platform.OS === 'android') {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        this.requestGeolocation();
+      }
+    } else {
+      this.requestGeolocation();
+    }
+  };
+
+  /**
+   * 获取坐标
+   */
+  requestGeolocation = () => {
+    Geolocation.getCurrentPosition(
+      position => {
+        // console.log(position, 'position');
+        const { dispatch } = this.props;
+        const {
+          coords: { longitude, latitude }
+        } = position;
+        dispatch(setLng(longitude));
+        dispatch(setLat(latitude));
+      },
+      () => {
+        // console.log(error.code, error.message, 'err');
+      },
+      { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+    );
+  };
 
   /**
    * 获取配送员是否上班
@@ -160,4 +213,4 @@ class Order extends PureComponent {
   }
 }
 
-export default Order;
+export default connect()(Order);

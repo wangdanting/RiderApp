@@ -4,7 +4,7 @@ import Storage from '../storage';
 import { handleNoCommontError, handleCommonError } from './errorHandle';
 import { md5, appKey } from '@/utils';
 import { store } from '@/index';
-import setLoading from '@/actions/global';
+import { setLoading } from '@/actions/global';
 
 const { host, urlPrefix, authKey, errorMsg } = config;
 

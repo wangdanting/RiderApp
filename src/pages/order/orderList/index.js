@@ -52,7 +52,7 @@ class OrderList extends PureComponent {
 
   renderItem = ({ item }) => {
     const { status } = this.props;
-    return <OrderItem status={status} item={item} />;
+    return <OrderItem status={status} item={item} handleSearch={this.handleSearch} />;
   };
 
   render() {

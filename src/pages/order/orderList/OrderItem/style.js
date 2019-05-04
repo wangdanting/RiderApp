@@ -26,6 +26,11 @@ const styles = EStyleSheet.create({
   returnBtn: {
     height: '110rem',
     flex: 1
+  },
+  modal: {
+    paddingBottom: '70rem',
+    textAlign: 'center',
+    color: '$headingColor'
   }
 });
 
