@@ -50,7 +50,10 @@ class OrderList extends PureComponent {
 
   keyExtractor = item => String(item.expressOrderId);
 
-  renderItem = ({ item }) => <OrderItem item={item} />;
+  renderItem = ({ item }) => {
+    const { status } = this.props;
+    return <OrderItem status={status} item={item} />;
+  };
 
   render() {
     const { data, queryData, refreshing, dataTotal } = this.state;

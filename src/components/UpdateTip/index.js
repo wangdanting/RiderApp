@@ -16,7 +16,7 @@ const closeIcon = require('./image/ic-close.png');
 class UpdateTip extends PureComponent {
   state = {
     status: 'before', // 状态 'before' 下载前 'downloading'下载中 'failure'下载失败
-    isVisible: true, // 是否显示modal框
+    isVisible: false, // 是否显示modal框
     versionCode: 'v1.2.1', // 外部版本号
     updateInfo: [
       '主页全选改版',

@@ -18,7 +18,7 @@ const AddressInfo = ({ quInfo, songInfo, isShowNavi }) => (
         {quInfo.subtitle ? <Text style={styles.subtitle}>{quInfo.subtitle}</Text> : null}
       </View>
     ) : null}
-    <Divider />
+    {quInfo.title && songInfo.title ? <Divider /> : null}
     {songInfo.title ? (
       <View style={styles.item}>
         <Image style={styles.song} source={songIcon} />

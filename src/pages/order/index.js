@@ -141,24 +141,19 @@ class Order extends PureComponent {
           tabBarActiveTextColor={$headingColor}
           tabBarInactiveTextColor={$textColor}
         >
-          <View style={{ flex: 1 }}>
-            <OrderList status='wait_accept' />
-          </View>
-          <View>
-            <OrderList status='wait_write' />
-          </View>
-          <View>
-            <OrderList status='wait_fetch' />
-          </View>
-          <View>
-            <OrderList status='sending' />
-          </View>
+          <View>{onlineState ? <OrderList status='wait_accept' /> : null}</View>
+          <View>{onlineState ? <OrderList status='wait_write' /> : null}</View>
+          <View>{onlineState ? <OrderList status='wait_fetch' /> : null}</View>
+          <View>{onlineState ? <OrderList status='sending' /> : null}</View>
         </Tabs>
-        <View style={styles.task}>
-          <Badge text={9} size='large'>
-            <Image source={taskIcon} style={styles.taskImg} />
-          </Badge>
-        </View>
+        {onlineState ? (
+          <View style={styles.task}>
+            <Badge text={9} size='large'>
+              <Image source={taskIcon} style={styles.taskImg} />
+            </Badge>
+          </View>
+        ) : null}
+
         {onlineState ? null : <OfflineTip onOnLine={this.onOnLine} />}
       </SafeAreaView>
     );

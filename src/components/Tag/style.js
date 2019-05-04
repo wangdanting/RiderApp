@@ -25,6 +25,10 @@ const styles = EStyleSheet.create({
   purple: {
     backgroundColor: '#eddaf6',
     color: '#a556d3'
+  },
+  blue: {
+    backgroundColor: '#daf7ff',
+    color: '#059EFF'
   }
 });
 
