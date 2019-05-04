@@ -1,7 +1,7 @@
 import { Toast } from '@ant-design/react-native';
 import config from '@/config';
-import { NavigationActions } from 'react-navigation';
 import Storage from '../storage';
+import NavigationService from '../navigationService';
 
 const { authKey, errorMsg } = config;
 
@@ -38,10 +38,7 @@ export const handleCommonError = err => {
       // 登录过期
       Storage.remove(authKey);
       Toast.info('登录过期，请重新登录！');
-      NavigationActions.navigate({
-        type: NavigationActions.NAVIGATE,
-        routeName: 'Auth'
-      });
+      NavigationService.navigate('Auth');
       break;
     }
     default: {

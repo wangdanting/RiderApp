@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import AppContainer from './router/index';
 import PageLoading from './components/PageLoading';
 import { NavigationService } from './utils';
+import UpdateTip from '@/components/UpdateTip';
 
 const App = ({ loading }) => (
   <Fragment>
@@ -15,6 +16,7 @@ const App = ({ loading }) => (
         }}
       />
     </AntProvider>
+    <UpdateTip />
     <PageLoading loading={loading} />
   </Fragment>
 );
