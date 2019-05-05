@@ -1,4 +1,4 @@
-package com.riderapp.RNMudule.update;
+package com.riderapp.RNModule.update;
 
 import android.support.v4.content.FileProvider;
 

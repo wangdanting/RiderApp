@@ -1,11 +1,11 @@
-package com.riderapp.RNMudule;
+package com.riderapp.RNModule;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 
-import com.riderapp.RNMudule.update.*;
+import com.riderapp.RNModule.update.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
