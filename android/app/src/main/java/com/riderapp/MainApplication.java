@@ -3,6 +3,7 @@ package com.riderapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.apsl.versionnumber.RNVersionNumberPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.riderapp.RNModule.RNModulePackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNVersionNumberPackage(),
             new RNModulePackage(),
             new AsyncStoragePackage(),
             new RNGestureHandlerPackage(),

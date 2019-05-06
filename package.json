@@ -27,6 +27,7 @@
     "react-native-modal": "^9.0.0",
     "react-native-modal-datetime-picker": "^7.4.0",
     "react-native-switch-selector": "^1.1.12",
+    "react-native-version-number": "^0.3.5",
     "react-navigation": "^3.6.1",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",

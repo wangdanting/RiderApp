@@ -6069,6 +6069,11 @@ react-native-tab-view@^1.0.0, react-native-tab-view@^1.2.0:
   dependencies:
     prop-types "^15.6.1"
 
+react-native-version-number@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/react-native-version-number/-/react-native-version-number-0.3.5.tgz#90f1b49bcb5e72f801bdc22ed6bad6c7cbbc2222"
+  integrity sha512-iANHQrYyDSe5Yts2qVjAjFXpK5EHkJGSFAqnVa3Bu/UKBRUjhnMqvskc3EH+IIvvJH9N2Qpidm1KCq42BWa6jQ==
+
 react-native@0.59.3:
   version "0.59.3"
   resolved "http://registry.npm.taobao.org/react-native/download/react-native-0.59.3.tgz#b984bbe457f63d5515046d32ea5721fd22843548"

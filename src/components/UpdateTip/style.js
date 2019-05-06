@@ -34,27 +34,17 @@ const styles = EStyleSheet.create({
     fontWeight: '900'
   },
   inner: {
-    marginVertical: '30rem',
     marginTop: '40rem',
-    height: '160rem',
+    marginBottom: '20rem',
+    maxHeight: '160rem',
     width: '100%'
   },
-  item: {
-    marginBottom: '5rem'
-  },
   txt: {
+    marginBottom: '6rem',
     color: '$textColorSecondary',
     fontSize: '27rem',
-    textAlign: 'left',
-    lineHeight: '35rem'
-  },
-  dot: {
-    marginRight: '15rem',
-    top: '12rem',
-    width: '12rem',
-    height: '12rem',
-    borderRadius: '50rem',
-    backgroundColor: '$primaryColor'
+    lineHeight: '30rem',
+    textAlign: 'center'
   },
   btn: {
     marginVertical: '40rem',
