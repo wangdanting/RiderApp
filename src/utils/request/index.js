@@ -31,7 +31,7 @@ const request = async (url, options = {}) => {
   };
 
   const configs = { ...defaultOptions, ...newOptions };
-  const newUrl = `${host}${options.urlPrefix || urlPrefix}${url}`;
+  const newUrl = `${options.host || host}${options.urlPrefix || urlPrefix}${url}`;
   // 开始loading
   if (!options.noLoading) {
     store.dispatch(setLoading(true));

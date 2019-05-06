@@ -37,3 +37,16 @@ export const formatMobile = mobile => {
   }
   return String(mobile).replace(/(^\d{3}|\d{4}\B)/g, '$1 ');
 };
+
+/**
+ *  判断版本号格式是否正确
+ * @param {string} code 版本号
+ * @returns '1.3' 或者 '1.3.4' 格式的版本号
+ * @example
+ * isOkVersionCode('1.3.4')
+ * // => true
+ */
+export const isOkVersionCode = code => {
+  const reg = /^(\d{1,4}\.)+\d{1,4}$/;
+  return reg.test(`${code}`);
+};

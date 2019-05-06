@@ -1,12 +1,23 @@
 import React, { PureComponent } from 'react';
-import { View, Text, Image, TouchableOpacity, ScrollView, Platform } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+  Platform,
+  NativeModules,
+  DeviceEventEmitter
+} from 'react-native';
 import { Flex } from '@ant-design/react-native';
 import VersionNumber from 'react-native-version-number';
 import Modal from 'react-native-modal';
 import Divider from '@/components/Divider';
 import config from '@/config';
-import { request } from '@/utils';
+import { request, isOkVersionCode } from '@/utils';
 import styles from './style';
+
+const { UpdateManager } = NativeModules;
 
 // 区分客户端版本
 const { clientNameAndroid, clientNameIOS } = config;
@@ -14,7 +25,8 @@ const clientName = Platform.OS === 'android' ? clientNameAndroid : clientNameIOS
 
 // 获取版本信息
 const currentVersion = VersionNumber.buildVersion; // 版本号
-// const currentVersionCode = VersionNumber.appVersion; // 版本名称
+const currentVersionCode = VersionNumber.appVersion; // 版本名称
+const appId = 1380512641;
 
 const bg = require('./image/pic.png');
 const closeIcon = require('./image/ic-close.png');
@@ -26,12 +38,18 @@ class UpdateTip extends PureComponent {
     promote: 0, // 更新方式(1升级，0不升级，2强制升级)
     versionCode: 'v1.2.1', // 外部版本号
     updateInfo: [], // 升级信息
+    clientUrl: '', // 下载地址
     title: '升级到新版本',
     btnText: '立即升级'
   };
 
   componentDidMount() {
     this.checkUpdate();
+  }
+
+  componentWillUnmount() {
+    // 回收监听进度
+    DeviceEventEmitter.removeListener('DownloadApkProgress');
   }
 
   /**
@@ -41,14 +59,14 @@ class UpdateTip extends PureComponent {
     request(`/client/version/${clientName}`, {
       urlPrefix: '/api/common'
     }).then(data => {
-      // console.log(data, 'data');
       if (data) {
-        const { versionCode, version, promote, upgradePrompt } = data;
+        const { versionCode, version, promote, upgradePrompt, clientUrl } = data;
         // 判断是否需要更新以及更新方式
-        if (currentVersion < version && promote !== 0) {
+        if (currentVersion < version && promote !== 0 && this.isAppStoreHasNewVersion()) {
           this.setState({
             versionCode,
             promote,
+            clientUrl,
             updateInfo: upgradePrompt.split('|'),
             isVisible: true
           });
@@ -58,14 +76,61 @@ class UpdateTip extends PureComponent {
   };
 
   /**
+   * 检查ios appStore 是否有新版本
+   */
+  isAppStoreHasNewVersion = async () => {
+    if (Platform.OS === 'ios') {
+      await request(`/lookup?id=${appId}`, {
+        host: 'https://itunes.apple.com',
+        urlPrefix: '/cn'
+      }).then(({ results }) => {
+        if (Array.isArray(results) && results.length) {
+          const { version } = results[0];
+          // 判断版本格式是否正确
+          if (isOkVersionCode(version) && isOkVersionCode(currentVersionCode)) {
+            if (version > currentVersionCode) {
+              return true;
+            }
+          }
+        }
+        return false;
+      });
+    }
+    return false;
+  };
+
+  /**
    * 安卓升级
    */
-  updateAndroid = () => {};
+  updateAndroid = () => {
+    const { clientUrl } = this.state;
+    UpdateManager.update(clientUrl);
+    DeviceEventEmitter.addListener('DownloadApkProgress', arg => {
+      const percent = Math.floor((arg.current / arg.total) * 100) || 0;
+      this.setState({
+        title: '升级中...',
+        btnText: `${percent}%...`
+      });
+      if (arg.error) {
+        this.setState({
+          title: '下载失败',
+          btnText: '重新下载'
+        });
+      }
+      if (arg.done) {
+        this.setState({
+          title: '升级成功'
+        });
+      }
+    });
+  };
 
   /**
    * 安卓ios
    */
-  updateIOS = () => {};
+  updateIOS = () => {
+    UpdateManager.update(`${appId}`);
+  };
 
   /**
    * 点击升级
