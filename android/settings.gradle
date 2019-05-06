@@ -1,4 +1,7 @@
 rootProject.name = 'RiderApp'
+
+include ':app', ':react-native-update-version-module'
+project(':react-native-update-version-module').projectDir = new File(rootProject.projectDir, '../../../iWubida/Git/react-native-update-version/android/')
 include ':react-native-version-number'
 project(':react-native-version-number').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-version-number/android')
 include ':@react-native-community_async-storage'

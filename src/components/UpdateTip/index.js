@@ -17,7 +17,7 @@ import config from '@/config';
 import { request, isOkVersionCode } from '@/utils';
 import styles from './style';
 
-const { UpdateManager } = NativeModules;
+const { RNUpdateVersionModule } = NativeModules;
 
 // 区分客户端版本
 const { clientNameAndroid, clientNameIOS } = config;
@@ -104,7 +104,7 @@ class UpdateTip extends PureComponent {
    */
   updateAndroid = () => {
     const { clientUrl } = this.state;
-    UpdateManager.update(clientUrl);
+    RNUpdateVersionModule.update(clientUrl);
     DeviceEventEmitter.addListener('DownloadApkProgress', arg => {
       const percent = Math.floor((arg.current / arg.total) * 100) || 0;
       this.setState({
@@ -129,7 +129,7 @@ class UpdateTip extends PureComponent {
    * 安卓ios
    */
   updateIOS = () => {
-    UpdateManager.update(`${appId}`);
+    RNUpdateVersionModule.update(`${appId}`);
   };
 
   /**

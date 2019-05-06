@@ -4,8 +4,8 @@ import android.app.Application;
 
 import com.facebook.react.ReactApplication;
 import com.apsl.versionnumber.RNVersionNumberPackage;
+import com.reactlibrary.RNUpdateVersionModulePackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
-import com.riderapp.RNModule.RNModulePackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -29,7 +29,8 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new RNVersionNumberPackage(),
-            new RNModulePackage(),
+//            new RNModulePackage(),
+              new RNUpdateVersionModulePackage(),
             new AsyncStoragePackage(),
             new RNGestureHandlerPackage(),
             new RNFusedLocationPackage()
