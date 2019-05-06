@@ -8,12 +8,12 @@ const Divider = ({ type, color, width, height }) => {
     horizontal: {
       width: width || '100%',
       height: height || '1rem',
-      backgroundColor: color
+      backgroundColor: color || '#e5e5e5'
     },
     vertical: {
       width: width || '1rem',
       height: height || '100rem',
-      backgroundColor: color
+      backgroundColor: color || '#e5e5e5'
     }
   });
   return <View style={styles[type]} />;

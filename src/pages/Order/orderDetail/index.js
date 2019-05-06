@@ -24,6 +24,8 @@ class OrderDetail extends PureComponent {
   };
 
   render() {
+    // const { data } = this.props;
+    // console.log(data, 'data');
     const quInfo = {
       title: '李子坝梁山鸡李子坝梁山鸡李子坝梁山鸡',
       subtitle: '李子坝梁山鸡李子坝梁山鸡李子坝梁山鸡李子坝梁山鸡李子坝梁山鸡'

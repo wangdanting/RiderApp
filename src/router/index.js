@@ -24,12 +24,12 @@ const AuthStack = createStackNavigator(
 
 const AppStack = createStackNavigator({
   Order,
+  OrderDetail,
   HistoryOrder,
   HistoryOrderSearch,
   PersonalCenter,
   Address,
   EntryReceiver,
-  OrderDetail,
   TransferOrder,
   Notification,
   TaskList,

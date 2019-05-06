@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import { View, Text } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
+import { withNavigation } from 'react-navigation';
 import { connect } from 'react-redux';
 import { Flex } from '@ant-design/react-native';
 import StatusBar from '@/components/StatusBar';
@@ -21,26 +22,42 @@ class OrderItem extends PureComponent {
     item: PropTypes.objectOf(PropTypes.any),
     status: PropTypes.oneOf(['wait_accept', 'wait_write', 'wait_fetch', 'sending']).isRequired, // 订单状态
     lng: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    lat: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    lat: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    handleSearch: PropTypes.func,
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func
+    }) // 导航
   };
 
   static defaultProps = {
     item: {},
     lng: '',
-    lat: ''
+    lat: '',
+    handleSearch: () => {},
+    navigation: {
+      navigate: () => {}
+    }
   };
 
   state = {
-    isShowReceiveModal: false, // 是否显示确认接单modal
-    isShowSendingModal: false, // 是否线上配送送达modal
-    isShowFetchModal: false // 是否确认取件modal
+    isShowReceiveModal: false // 是否显示确认接单modal
   };
 
   /**
-   * 接单
+   * 接单modal
    */
   receiveOrder = () => {
-    const { lng, lat, item } = this.props;
+    this.setState({
+      isShowReceiveModal: true
+    });
+  };
+
+  /**
+   * 确认接单
+   */
+  receiveOrderOk = () => {
+    const { lng, lat, item, handleSearch, status } = this.props;
+    this.receiveOrderCancel();
     request(`/express_orders/receive/${item.expressOrderId}`, {
       data: {
         lng,
@@ -49,13 +66,36 @@ class OrderItem extends PureComponent {
       method: 'post'
     }).then(({ result }) => {
       if (result) {
+        const queryData = {
+          status,
+          page: 0,
+          size: 10
+        };
+        handleSearch(queryData);
       }
     });
   };
 
+  /**
+   * 隐藏接单Modal
+   */
+  receiveOrderCancel = () => {
+    this.setState({
+      isShowReceiveModal: false
+    });
+  };
+
+  /**
+   * 跳转订单详情
+   */
+  gotoDetail = () => {
+    const { navigation, item } = this.props;
+    navigation.navigate('OrderDetail', { data: item });
+  };
+
   render() {
     const { item, status } = this.props;
-    const { isShowReceiveModal, isShowSendingModal, isShowFetchModal } = this.state;
+    const { isShowReceiveModal } = this.state;
 
     const quInfo = !(item.orderWay === 'applet-proxy' && item.shopType === 'nearby')
       ? {
@@ -72,7 +112,7 @@ class OrderItem extends PureComponent {
         : {};
 
     return (
-      <View style={styles.container}>
+      <TouchableOpacity style={styles.container} onPress={this.gotoDetail}>
         <StatusBar date='14-29' time='14:20' status='前取件' money='8.5' />
         <Tag
           orderWay={item.orderWay}
@@ -120,28 +160,12 @@ class OrderItem extends PureComponent {
           highLightPosition='right'
           title='接单'
           isVisible={isShowReceiveModal}
+          onRight={this.receiveOrderOk}
+          onLeft={this.receiveOrderCancel}
         >
           <Text style={styles.modal}>是否确认接该订单？</Text>
         </Modal>
-        <Modal
-          leftText='取消'
-          rightText='确认'
-          highLightPosition='right'
-          title='配送取件'
-          isVisible={isShowFetchModal}
-        >
-          <Text style={styles.modal}>您确定取件？</Text>
-        </Modal>
-        <Modal
-          leftText='取消'
-          rightText='确认'
-          highLightPosition='right'
-          title='配送确认'
-          isVisible={isShowSendingModal}
-        >
-          <Text style={styles.modal}>确认该商品已送达？</Text>
-        </Modal>
-      </View>
+      </TouchableOpacity>
     );
   }
 }
@@ -153,4 +177,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(OrderItem);
+export default connect(mapStateToProps)(withNavigation(OrderItem));
