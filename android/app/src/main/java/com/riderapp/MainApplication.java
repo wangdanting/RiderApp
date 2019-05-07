@@ -29,8 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new RNVersionNumberPackage(),
-//            new RNModulePackage(),
-              new RNUpdateVersionModulePackage(),
+            new RNUpdateVersionModulePackage(),
             new AsyncStoragePackage(),
             new RNGestureHandlerPackage(),
             new RNFusedLocationPackage()
