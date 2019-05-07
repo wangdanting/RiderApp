@@ -22,7 +22,9 @@
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-
+      <meta-data
+        android:name="com.amap.api.v2.apikey"
+        android:value="5b53b86b6fc526ecfe1dbecb0951340b" />
     </application>
 
 </manifest>
