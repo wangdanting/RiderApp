@@ -20,6 +20,7 @@
     "qs": "^6.7.0",
     "react": "^16.8.6",
     "react-native": "0.59.3",
+    "react-native-amap3d": "^1.1.0",
     "react-native-extended-stylesheet": "^0.11.1",
     "react-native-geolocation-service": "^2.0.0",
     "react-native-gesture-handler": "^1.1.0",

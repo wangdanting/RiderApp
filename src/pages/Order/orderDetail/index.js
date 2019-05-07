@@ -11,6 +11,8 @@ import OneClick from '@/components/OneClick';
 import Contact from './Contact';
 import styles from './style';
 
+const { Description } = DescriptionList;
+
 class OrderDetail extends PureComponent {
   static navigationOptions = {
     title: '订单详情',
@@ -71,8 +73,22 @@ class OrderDetail extends PureComponent {
           <Daigou orderRemark={item.orderRemark} estimateFee={item.estimateFee} />
           <Contact merchant={item.fromMobile} user={item.destMobile} />
         </View>
-        <Steps />
-        <DescriptionList />
+        <Steps
+          orderCreateTime={item.orderCreateTime}
+          acceptTime={item.acceptTime}
+          acceptOnTime={item.acceptOnTime}
+          fetchTime={item.fetchTime}
+          finishOnTime={item.finishOnTime}
+          finishTime={item.finishTime}
+        />
+        <DescriptionList title='订单信息'>
+          <Description label='订单类别' value={item.orderWayName} />
+          {item.orderWay === 'applet-fast' ? (
+            <Description label='一键下单单号' value={item.thirdOrderViewId} />
+          ) : (
+            <Description label='订单号码' value={item.expressOrderId} />
+          )}
+        </DescriptionList>
       </ScrollView>
     );
   }

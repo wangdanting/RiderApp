@@ -5963,6 +5963,11 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-native-amap3d@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-amap3d/-/react-native-amap3d-1.1.0.tgz#ec204e8d16c765c9260d4703ab6eba7a441b0ac5"
+  integrity sha512-9Oi5mchRwLhNEKQkLDcdmEN5+TCJQYtCMNG9JPaB0T69l6VXvDiYVu+Gws4H+Lee0gFs4wo6un0n9SypTygSow==
+
 react-native-animatable@^1.2.4:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.3.2.tgz#4783ee1a73dc98815aef234ce6b819f80bfe7d80"
