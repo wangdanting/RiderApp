@@ -10,6 +10,10 @@ const styles = EStyleSheet.create({
     height: '400rem',
     backgroundColor: 'green'
   },
+  mapInner: {
+    width: '100%',
+    height: '100%'
+  },
   whiteBg: {
     backgroundColor: '#fff',
     paddingHorizontal: '30rem'

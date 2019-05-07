@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { View, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
-// import { MapView, Marker } from 'react-native-amap3d';
+import { connect } from 'react-redux';
 import Tag from '@/components/Tag';
 import StatusBar from '@/components/StatusBar';
 import AddressInfo from '@/components/AddressInfo';
@@ -10,6 +10,7 @@ import Daigou from '@/components/Daigou';
 import DescriptionList from '@/components/DescriptionList';
 import OneClick from '@/components/OneClick';
 import Contact from './Contact';
+import Map from './Map';
 import styles from './style';
 
 const { Description } = DescriptionList;
@@ -30,18 +31,24 @@ class OrderDetail extends PureComponent {
   static propTypes = {
     navigation: PropTypes.shape({
       navigate: PropTypes.func
-    }) // 导航
+    }), // 导航
+    lng: PropTypes.number,
+    lat: PropTypes.number
   };
 
   static defaultProps = {
     navigation: {
       navigate: () => {}
-    }
+    },
+    lng: 106.534892,
+    lat: 29.551891
   };
 
   render() {
-    const { navigation } = this.props;
+    const { navigation, lng, lat } = this.props;
     const item = navigation.getParam('data');
+
+    // 取、送信息
     const quInfo = !(item.orderWay === 'applet-proxy' && item.shopType === 'nearby')
       ? {
           title: item.fromBusinessName,
@@ -56,6 +63,8 @@ class OrderDetail extends PureComponent {
           }
         : {};
 
+    const { fromLat, fromLng, destLat, destLng } = item;
+
     return (
       <ScrollView style={styles.page}>
         <View style={styles.whiteBg}>
@@ -67,7 +76,15 @@ class OrderDetail extends PureComponent {
             shopType={item.shopType}
           />
         </View>
-        <View style={styles.map} />
+        <Map
+          lng={Number(lng)}
+          lat={Number(lat)}
+          fromLat={Number(fromLat)}
+          fromLng={Number(fromLng)}
+          destLat={Number(destLat)}
+          destLng={Number(destLng)}
+        />
+
         <View style={styles.whiteBg}>
           {item.orderWay === 'applet-fast' ? <OneClick id={item.thirdOrderViewId} /> : null}
           <AddressInfo quInfo={quInfo} songInfo={songInfo} />
@@ -95,4 +112,11 @@ class OrderDetail extends PureComponent {
   }
 }
 
-export default OrderDetail;
+const mapStateToProps = state => {
+  return {
+    lng: state.global.lng,
+    lat: state.global.lat
+  };
+};
+
+export default connect(mapStateToProps)(OrderDetail);

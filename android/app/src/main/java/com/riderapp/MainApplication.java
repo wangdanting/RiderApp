@@ -3,6 +3,7 @@ package com.riderapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import cn.qiuxiang.react.amap3d.AMap3DPackage;
 import com.apsl.versionnumber.RNVersionNumberPackage;
 import com.reactlibrary.RNUpdateVersionModulePackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new AMap3DPackage(),
             new RNVersionNumberPackage(),
             new RNUpdateVersionModulePackage(),
             new AsyncStoragePackage(),
