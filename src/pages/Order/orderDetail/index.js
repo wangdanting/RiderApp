@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, ScrollView } from 'react-native';
+import PropTypes from 'prop-types';
 import Tag from '@/components/Tag';
 import StatusBar from '@/components/StatusBar';
 import AddressInfo from '@/components/AddressInfo';
@@ -7,7 +8,7 @@ import Steps from '@/components/Steps';
 import Daigou from '@/components/Daigou';
 import DescriptionList from '@/components/DescriptionList';
 import OneClick from '@/components/OneClick';
-import Contact from './contact';
+import Contact from './Contact';
 import styles from './style';
 
 class OrderDetail extends PureComponent {
@@ -23,29 +24,52 @@ class OrderDetail extends PureComponent {
     }
   };
 
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func
+    }) // 导航
+  };
+
+  static defaultProps = {
+    navigation: {
+      navigate: () => {}
+    }
+  };
+
   render() {
-    // const { data } = this.props;
-    // console.log(data, 'data');
-    const quInfo = {
-      title: '李子坝梁山鸡李子坝梁山鸡李子坝梁山鸡',
-      subtitle: '李子坝梁山鸡李子坝梁山鸡李子坝梁山鸡李子坝梁山鸡李子坝梁山鸡'
-    };
-    const songInfo = {
-      title: '李子坝梁山鸡李子坝梁山鸡李子坝梁山鸡',
-      name: '李子坝'
-    };
+    const { navigation } = this.props;
+    const item = navigation.getParam('data');
+    const quInfo = !(item.orderWay === 'applet-proxy' && item.shopType === 'nearby')
+      ? {
+          title: item.fromBusinessName,
+          subtitle: `${item.fromDistrictName} ${item.fromStreet} ${item.fromHouse}`
+        }
+      : {};
+    const songInfo =
+      item.orderWay !== 'applet-fast'
+        ? {
+            title: `${item.destDistrictName} ${item.destStreet} ${item.destHouse}`,
+            name: item.destName
+          }
+        : {};
+
     return (
       <ScrollView style={styles.page}>
         <View style={styles.whiteBg}>
           <StatusBar date='14-29' time='14:20' status='前取件' money='8.5' />
-          <Tag />
+          <Tag
+            orderWay={item.orderWay}
+            orderType={item.orderType}
+            orderLabel={item.orderLabel}
+            shopType={item.shopType}
+          />
         </View>
         <View style={styles.map} />
         <View style={styles.whiteBg}>
-          <OneClick />
+          {item.orderWay === 'applet-fast' ? <OneClick id={item.thirdOrderViewId} /> : null}
           <AddressInfo quInfo={quInfo} songInfo={songInfo} />
-          <Daigou />
-          <Contact />
+          <Daigou orderRemark={item.orderRemark} estimateFee={item.estimateFee} />
+          <Contact merchant={item.fromMobile} user={item.destMobile} />
         </View>
         <Steps />
         <DescriptionList />

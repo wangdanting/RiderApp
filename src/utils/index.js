@@ -1,4 +1,6 @@
 import forge from 'node-forge';
+import { Linking, Alert } from 'react-native';
+import { Toast } from '@ant-design/react-native';
 
 export { default as request } from './request';
 export { default as Storage } from './storage';
@@ -49,4 +51,22 @@ export const formatMobile = mobile => {
 export const isOkVersionCode = code => {
   const reg = /^(\d{1,4}\.)+\d{1,4}$/;
   return reg.test(`${code}`);
+};
+
+/**
+ *  拨打电话
+ * @param {string} phone 版本号
+ * @example
+ * call('18888888888')
+ */
+export const call = phone => {
+  const url = `tel:${phone}`;
+  Linking.canOpenURL(url)
+    .then(supported => {
+      if (!supported) {
+        return Alert.alert('提示', `您的设备不支持该功能，请手动拨打 ${phone}`, [{ text: '确定' }]);
+      }
+      return Linking.openURL(url);
+    })
+    .catch(err => Toast.info(`出错了：${err}`, 1.5));
 };
