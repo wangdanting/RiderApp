@@ -20,13 +20,12 @@ import styles from './style';
 const { RNUpdateVersionModule } = NativeModules;
 
 // 区分客户端版本
-const { clientNameAndroid, clientNameIOS } = config;
+const { clientNameAndroid, clientNameIOS, appId } = config;
 const clientName = Platform.OS === 'android' ? clientNameAndroid : clientNameIOS;
 
 // 获取版本信息
 const currentVersion = VersionNumber.buildVersion; // 版本号
 const currentVersionCode = VersionNumber.appVersion; // 版本名称
-const appId = 1380512641;
 
 const bg = require('./image/pic.png');
 const closeIcon = require('./image/ic-close.png');

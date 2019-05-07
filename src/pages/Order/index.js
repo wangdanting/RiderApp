@@ -110,7 +110,6 @@ class Order extends PureComponent {
   requestGeolocation = () => {
     Geolocation.getCurrentPosition(
       position => {
-        // console.log(position, 'position');
         const { dispatch } = this.props;
         const {
           coords: { longitude, latitude }
