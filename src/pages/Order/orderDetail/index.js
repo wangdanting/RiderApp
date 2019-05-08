@@ -20,7 +20,8 @@ class OrderDetail extends PureComponent {
     title: '订单详情',
     headerTitleStyle: {
       textAlign: 'center',
-      flex: 1
+      flex: 1,
+      left: -20
     },
     headerStyle: {
       borderBottomWidth: 0,

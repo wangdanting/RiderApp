@@ -7,7 +7,7 @@ const styles = EStyleSheet.create({
   btn: {
     height: '100%',
     // width: '100%',
-    borderWidth: '1rem',
+    borderWidth: '2rem',
     borderColor: '$textColorSecondary'
   },
   icon: {

@@ -86,6 +86,14 @@ class OrderItem extends PureComponent {
   };
 
   /**
+   * 转单
+   */
+  goTransferOrder = () => {
+    const { navigation, item } = this.props;
+    navigation.navigate('TransferOrder', { orderId: item.expressOrderId });
+  };
+
+  /**
    * 跳转订单详情
    */
   gotoDetail = () => {
@@ -125,7 +133,12 @@ class OrderItem extends PureComponent {
         <Daigou orderRemark={item.orderRemark} estimateFee={item.estimateFee} />
         <Flex style={styles.btnGroup}>
           {status !== 'sending' && !item.orderTurnState ? (
-            <Button title='转单' type='plain' style={styles.turnBtn} />
+            <Button
+              title='转单'
+              type='plain'
+              style={styles.turnBtn}
+              onPress={this.goTransferOrder}
+            />
           ) : null}
           {status === 'wait_accept' && !item.orderTurnState ? (
             <Button

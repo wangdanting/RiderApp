@@ -44,6 +44,12 @@ const styles = EStyleSheet.create({
     color: '$primaryColor',
     fontWeight: '900',
     paddingHorizontal: '10rem'
+  },
+  emptyImg: {
+    marginTop: '300rem'
+  },
+  modal: {
+    marginBottom: '70rem'
   }
 });
 
