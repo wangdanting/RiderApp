@@ -134,14 +134,14 @@ class TransferOrder extends PureComponent {
       orderId,
       destCourierId: courierId
     };
+    this.setState({
+      isVisible: false
+    });
     request('/orders/switch/from_requ', {
       method: 'post',
       params: queryData
     }).then(({ result }) => {
       if (result) {
-        this.setState({
-          isVisible: false
-        });
         const { navigation } = this.props;
         Toast.info('成功发起转单申请');
         navigation.goBack();

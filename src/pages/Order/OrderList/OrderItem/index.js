@@ -40,7 +40,21 @@ class OrderItem extends PureComponent {
   };
 
   state = {
-    isShowReceiveModal: false // 是否显示确认接单modal
+    isShowReceiveModal: false, // 是否显示确认接单modal
+    isShowCancelModal: false // 是否显示确认撤销转单modal
+  };
+
+  /**
+   * 刷新订单列表
+   */
+  handleSearch = () => {
+    const { handleSearch, status } = this.props;
+    const queryData = {
+      status,
+      page: 0,
+      size: 10
+    };
+    handleSearch(queryData);
   };
 
   /**
@@ -56,7 +70,7 @@ class OrderItem extends PureComponent {
    * 确认接单
    */
   receiveOrderOk = () => {
-    const { lng, lat, item, handleSearch, status } = this.props;
+    const { lng, lat, item } = this.props;
     this.receiveOrderCancel();
     request(`/express_orders/receive/${item.expressOrderId}`, {
       data: {
@@ -66,12 +80,7 @@ class OrderItem extends PureComponent {
       method: 'post'
     }).then(({ result }) => {
       if (result) {
-        const queryData = {
-          status,
-          page: 0,
-          size: 10
-        };
-        handleSearch(queryData);
+        this.handleSearch();
       }
     });
   };
@@ -94,6 +103,33 @@ class OrderItem extends PureComponent {
   };
 
   /**
+   * 关闭确认转单
+   */
+  setCancelOrderModal = () => {
+    this.setState(prev => ({
+      isShowCancelModal: !prev.isShowCancelModal
+    }));
+  };
+
+  /**
+   * 撤销转单
+   */
+  cancelOrder = () => {
+    const { item } = this.props;
+    this.setCancelOrderModal();
+    request('/orders/switch/revocation', {
+      method: 'post',
+      params: {
+        orderId: item.expressOrderId
+      }
+    }).then(({ result }) => {
+      if (result) {
+        this.handleSearch();
+      }
+    });
+  };
+
+  /**
    * 跳转订单详情
    */
   gotoDetail = () => {
@@ -103,7 +139,7 @@ class OrderItem extends PureComponent {
 
   render() {
     const { item, status } = this.props;
-    const { isShowReceiveModal } = this.state;
+    const { isShowReceiveModal, isShowCancelModal } = this.state;
 
     const quInfo = !(item.orderWay === 'applet-proxy' && item.shopType === 'nearby')
       ? {
@@ -163,7 +199,12 @@ class OrderItem extends PureComponent {
             />
           ) : null}
           {item.orderTurnState ? (
-            <Button title='撤销转单' style={styles.returnBtn} icon={closeIcon} />
+            <Button
+              title='撤销转单'
+              style={styles.returnBtn}
+              icon={closeIcon}
+              onPress={this.setCancelOrderModal}
+            />
           ) : null}
         </Flex>
         <Text style={styles.orderId}>{`订单号 ${item.expressOrderId}`}</Text>
@@ -177,6 +218,17 @@ class OrderItem extends PureComponent {
           onLeft={this.receiveOrderCancel}
         >
           <Text style={styles.modal}>是否确认接该订单？</Text>
+        </Modal>
+        <Modal
+          leftText='确定'
+          rightText='取消'
+          highLightPosition='left'
+          title='撤销转单'
+          isVisible={isShowCancelModal}
+          onRight={this.setCancelOrderModal}
+          onLeft={this.cancelOrder}
+        >
+          <Text style={styles.modal}>您确定要撤销该转单？</Text>
         </Modal>
       </TouchableOpacity>
     );
