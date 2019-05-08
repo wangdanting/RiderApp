@@ -47,7 +47,9 @@ class OrderDetail extends PureComponent {
 
   render() {
     const { navigation, lng, lat } = this.props;
+
     const item = navigation.getParam('data');
+    const status = navigation.getParam('status');
 
     // 取、送信息
     const quInfo = !(item.orderWay === 'applet-proxy' && item.shopType === 'nearby')
@@ -88,7 +90,12 @@ class OrderDetail extends PureComponent {
 
         <View style={styles.whiteBg}>
           {item.orderWay === 'applet-fast' ? <OneClick id={item.thirdOrderViewId} /> : null}
-          <AddressInfo quInfo={quInfo} songInfo={songInfo} />
+          <AddressInfo
+            quInfo={quInfo}
+            songInfo={songInfo}
+            isShowNaviQu={['wait_write', 'wait_fetch'].includes(status)}
+            isShowNaviSong={status === 'sending'}
+          />
           <Daigou orderRemark={item.orderRemark} estimateFee={item.estimateFee} />
           <Contact merchant={item.fromMobile} user={item.destMobile} />
         </View>

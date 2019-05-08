@@ -133,8 +133,16 @@ class OrderItem extends PureComponent {
    * 跳转订单详情
    */
   gotoDetail = () => {
-    const { navigation, item } = this.props;
-    navigation.navigate('OrderDetail', { data: item });
+    const { navigation, item, status } = this.props;
+    navigation.navigate('OrderDetail', { data: item, status });
+  };
+
+  /**
+   * 跳转录入收货人信息
+   */
+  goEntryReceiver = () => {
+    const { navigation } = this.props;
+    navigation.navigate('EntryReceiver');
   };
 
   render() {
@@ -196,6 +204,7 @@ class OrderItem extends PureComponent {
               type='primary'
               style={styles.receiveBtn}
               icon={inputIcon}
+              onPress={this.goEntryReceiver}
             />
           ) : null}
           {item.orderTurnState ? (
