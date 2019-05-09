@@ -5,6 +5,7 @@ import { Toast } from '@ant-design/react-native';
 export { default as request } from './request';
 export { default as Storage } from './storage';
 export { default as NavigationService } from './navigationService';
+export { default as MapLinking } from './mapLinking';
 
 /**
  * md5转换
