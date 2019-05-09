@@ -9,6 +9,7 @@ import Steps from '@/components/Steps';
 import Daigou from '@/components/Daigou';
 import DescriptionList from '@/components/DescriptionList';
 import OneClick from '@/components/OneClick';
+import { MapLinking } from '@/utils';
 import Contact from './Contact';
 import Map from './Map';
 import styles from './style';
@@ -33,8 +34,8 @@ class OrderDetail extends PureComponent {
     navigation: PropTypes.shape({
       navigate: PropTypes.func
     }), // 导航
-    lng: PropTypes.number,
-    lat: PropTypes.number
+    lng: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    lat: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   };
 
   static defaultProps = {
@@ -43,6 +44,28 @@ class OrderDetail extends PureComponent {
     },
     lng: 106.534892,
     lat: 29.551891
+  };
+
+  /**
+   * 打开导航
+   */
+  navLocation = () => {
+    const { lng, lat, navigation } = this.props;
+    const status = navigation.getParam('status');
+    const item = navigation.getParam('data');
+    const { fromLat, fromLng, destLat, destLng, fromStreet, destStreet } = item;
+
+    const startLocation = {
+      lng: Number(lng),
+      lat: Number(lat),
+      title: '得意世界'
+    };
+    const destLocation = {
+      lng: status === 'sending' ? Number(destLng) : Number(fromLng),
+      lat: status === 'sending' ? Number(destLat) : Number(fromLat),
+      title: status === 'sending' ? destStreet : fromStreet
+    };
+    MapLinking(startLocation, destLocation);
   };
 
   render() {
@@ -95,6 +118,7 @@ class OrderDetail extends PureComponent {
             songInfo={songInfo}
             isShowNaviQu={['wait_write', 'wait_fetch'].includes(status)}
             isShowNaviSong={status === 'sending'}
+            NaviOnPress={this.navLocation}
           />
           <Daigou orderRemark={item.orderRemark} estimateFee={item.estimateFee} />
           <Contact merchant={item.fromMobile} user={item.destMobile} />

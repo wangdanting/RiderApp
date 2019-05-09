@@ -154,12 +154,14 @@ const showExistApp = maps => {
       cancelButtonIndex: 0
     },
     buttonIndex => {
-      Linking.openURL(maps[buttonIndex][1]);
+      if (buttonIndex !== 0) {
+        Linking.openURL(maps[buttonIndex - 1][1]);
+      }
     }
   );
 };
 
-const planRoute = (
+const MapLinking = (
   startLocation = {
     lng: 106.534892,
     lat: 29.551891,
@@ -192,9 +194,5 @@ const planRoute = (
       }
     });
 };
-
-const MapLinking = () => {};
-
-MapLinking.planRoute = planRoute;
 
 export default MapLinking;

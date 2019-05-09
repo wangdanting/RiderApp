@@ -9,7 +9,7 @@ const quIcon = require('./images/ic_qu_40.png');
 const songIcon = require('./images/ic_song_40.png');
 const naviIcon = require('./images/ic-navigation.png');
 
-const AddressInfo = ({ quInfo, songInfo, isShowNaviQu, isShowNaviSong }) => (
+const AddressInfo = ({ quInfo, songInfo, isShowNaviQu, isShowNaviSong, NaviOnPress }) => (
   <View style={styles.container}>
     {quInfo.title ? (
       <View style={styles.item}>
@@ -20,7 +20,7 @@ const AddressInfo = ({ quInfo, songInfo, isShowNaviQu, isShowNaviSong }) => (
             {quInfo.subtitle ? <Text style={styles.subtitle}>{quInfo.subtitle}</Text> : null}
           </View>
           {isShowNaviQu ? (
-            <TouchableOpacity style={styles.naviContainer}>
+            <TouchableOpacity style={styles.naviContainer} onPress={NaviOnPress}>
               <Flex style={styles.navi} direction='column' justify='center'>
                 <Image style={styles.naviIcon} source={naviIcon} />
                 <Text style={styles.naviTxt}>导航</Text>
@@ -40,7 +40,7 @@ const AddressInfo = ({ quInfo, songInfo, isShowNaviQu, isShowNaviSong }) => (
             <Text style={styles.name}>{songInfo.name}</Text>
           </View>
           {isShowNaviSong ? (
-            <TouchableOpacity style={styles.naviContainer}>
+            <TouchableOpacity style={styles.naviContainer} onPress={NaviOnPress}>
               <Flex style={styles.navi} direction='column' justify='center'>
                 <Image style={styles.naviIcon} source={naviIcon} />
                 <Text style={styles.naviTxt}>导航</Text>
@@ -63,7 +63,8 @@ AddressInfo.propTypes = {
     name: PropTypes.string
   }), // 收件
   isShowNaviQu: PropTypes.bool, // 是否展示导航 (取)
-  isShowNaviSong: PropTypes.bool // 是否展示导航 (送)
+  isShowNaviSong: PropTypes.bool, // 是否展示导航 (送)
+  NaviOnPress: PropTypes.func // 点击导航回调函数
 };
 
 AddressInfo.defaultProps = {
@@ -76,7 +77,8 @@ AddressInfo.defaultProps = {
     name: ''
   },
   isShowNaviQu: false,
-  isShowNaviSong: false
+  isShowNaviSong: false,
+  NaviOnPress: () => {}
 };
 
 export default AddressInfo;
