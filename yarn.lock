@@ -711,6 +711,13 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@iwubida/react-native-map-linking@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@iwubida/react-native-map-linking/-/react-native-map-linking-1.0.1.tgz#739053e026b7d705c91dafd585c849fe0bb0b95e"
+  integrity sha512-YpXQ/+mJBT1fWGAxwQAzDVZfjpywse0RVhYlGVEu0j4ljdt47PYkbZs9H94NddrQJC4INrWPACHLZO+dC20K0w==
+  dependencies:
+    react-native-general-actionsheet "^1.0.3"
+
 "@jest/console@^24.7.1":
   version "24.7.1"
   resolved "http://registry.npm.taobao.org/@jest/console/download/@jest/console-24.7.1.tgz#32a9e42535a97aedfe037e725bd67e954b459545"

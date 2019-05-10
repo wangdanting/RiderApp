@@ -9,7 +9,8 @@ import Steps from '@/components/Steps';
 import Daigou from '@/components/Daigou';
 import DescriptionList from '@/components/DescriptionList';
 import OneClick from '@/components/OneClick';
-import { MapLinking } from '@/utils';
+// import { MapLinking } from '@/utils';
+import MapLinking from '@iwubida/react-native-map-linking';
 import Contact from './Contact';
 import Map from './Map';
 import styles from './style';
@@ -46,6 +47,10 @@ class OrderDetail extends PureComponent {
     lat: 29.551891
   };
 
+  componentDidMount() {
+    MapLinking.init({ tmapKey: 'OZRBZ-GD3RQ-KZV5T-GEBD7-7WBX7-UBB7O' });
+  }
+
   /**
    * 打开导航
    */
@@ -58,14 +63,14 @@ class OrderDetail extends PureComponent {
     const startLocation = {
       lng: Number(lng),
       lat: Number(lat),
-      title: '得意世界'
+      title: '李子坝抗战遗址公园'
     };
     const destLocation = {
       lng: status === 'sending' ? Number(destLng) : Number(fromLng),
       lat: status === 'sending' ? Number(destLat) : Number(fromLat),
       title: status === 'sending' ? destStreet : fromStreet
     };
-    MapLinking(startLocation, destLocation);
+    MapLinking.planRoute({ startLocation, destLocation });
   };
 
   render() {

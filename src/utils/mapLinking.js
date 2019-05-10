@@ -3,7 +3,8 @@ import { Linking, ActionSheetIOS, Platform } from 'react-native';
 import ActionSheet from 'react-native-general-actionsheet';
 
 // 腾讯地图开发者key
-const tmapKey = 'OZRBZ-GD3RQ-KZV5T-GEBD7-7WBX7-UBB7O';
+// const tmapKey = 'OZRBZ-GD3RQ-KZV5T-GEBD7-7WBX7-UBB7O';
+let tmapKey = '';
 
 // 下载地图app地址
 const DownloadUrl = {
@@ -161,7 +162,10 @@ const showExistApp = maps => {
   );
 };
 
-const MapLinking = (
+/**
+ * 规划路线
+ */
+const planRoute = (
   startLocation = {
     lng: 106.534892,
     lat: 29.551891,
@@ -194,5 +198,18 @@ const MapLinking = (
       }
     });
 };
+
+/**
+ * 初始化值(如果想兼容腾讯地图，需要传入腾讯开发者Key)
+ * 【申请地址】 https://lbs.qq.com/console/key.html
+ */
+const init = ({ tmapKey: refererKey = '' }) => {
+  tmapKey = refererKey;
+};
+
+const MapLinking = () => {};
+
+MapLinking.planRoute = planRoute;
+MapLinking.init = init;
 
 export default MapLinking;
