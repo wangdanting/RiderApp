@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import SearchInput from '@/components/SearchInput';
-import commonStyles from '../../../common/styles/commonStyles';
+import commonStyles from '@/common/styles/commonStyles';
 import styles from './style';
 
 class Address extends PureComponent {

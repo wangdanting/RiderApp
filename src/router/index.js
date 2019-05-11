@@ -23,8 +23,8 @@ const AuthStack = createStackNavigator(
 );
 
 const AppStack = createStackNavigator({
-  EntryReceiver,
   Order,
+  EntryReceiver,
   OrderDetail,
   TransferOrder,
   HistoryOrder,

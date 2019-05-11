@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import { View, Text, Image, TextInput } from 'react-native';
-import { Flex } from '@ant-design/react-native';
+import { Flex, Toast } from '@ant-design/react-native';
 import Modal from '@/components/Modal';
 import commonStyles from '@/common/styles/commonStyles';
 import Button from '@/components/Button';
-// import HistoryReceiver from './HistoryReceiver';
+import HistoryReceiver from './HistoryReceiver';
+import { regMobile, request } from '@/utils';
 import styles from './style';
 
 const shouIcon = require('./images/ic_shou.png');
@@ -22,7 +23,68 @@ class entryReceiver extends PureComponent {
     }
   };
 
+  state = {
+    mobile: '', // 电话
+    name: '', // 姓名
+    historyReceiver: [] // 历史收货人
+  };
+
+  /**
+   * 电话号码修改
+   */
+  handleChangeMobile = mobile => {
+    this.setState({
+      mobile
+    });
+    if (mobile.length === 11) {
+      if (regMobile.test(mobile)) {
+        this.getHistoryReceiver(mobile);
+      } else {
+        Toast.info('请输入正确的手机号码！');
+      }
+    }
+  };
+
+  /**
+   * 匹配历史收件人
+   */
+  getHistoryReceiver = mobile => {
+    request('/shop/addr/dest', {
+      params: {
+        destMobile: mobile
+      }
+    }).then(({ results }) => {
+      this.setState({
+        historyReceiver: results
+      });
+    });
+  };
+
+  /**
+   * 匹配历史收件人
+   */
+  chooseHistoryReceiver = () => {};
+
+  /**
+   * 清除匹配历史收件人
+   */
+  clearHistoryReceiver = () => {
+    this.setState({
+      historyReceiver: []
+    });
+  };
+
+  /**
+   * 姓名修改
+   */
+  handleChangeName = name => {
+    this.setState({
+      name
+    });
+  };
+
   render() {
+    const { mobile, historyReceiver, name } = this.state;
     return (
       <View style={styles.container}>
         <Flex style={styles.content} align='start'>
@@ -30,11 +92,23 @@ class entryReceiver extends PureComponent {
           <View style={styles.info}>
             <Flex style={[styles.item, commonStyles.borderBottom]}>
               <Text style={styles.label}>电话：</Text>
-              <TextInput placeholder='收件人手机号码' style={styles.input} />
+              <TextInput
+                placeholder='收件人手机号码'
+                style={styles.input}
+                value={mobile}
+                maxLength={11}
+                keyboardType='phone-pad'
+                onChangeText={this.handleChangeMobile}
+              />
             </Flex>
             <Flex style={[styles.item, commonStyles.borderBottom]}>
               <Text style={styles.label}>姓名：</Text>
-              <TextInput placeholder='收件人姓名(选填)' style={styles.input} />
+              <TextInput
+                placeholder='收件人姓名(选填)'
+                style={styles.input}
+                value={name}
+                onChangeText={this.handleChangeName}
+              />
             </Flex>
             <Flex style={[styles.item, commonStyles.borderBottom]}>
               <Text style={styles.label}>地区：</Text>
@@ -45,7 +119,11 @@ class entryReceiver extends PureComponent {
               <Text style={styles.label}>门牌号：</Text>
               <TextInput placeholder='例：16号楼427室' style={styles.input} />
             </Flex>
-            {/* <HistoryReceiver /> */}
+            <HistoryReceiver
+              data={historyReceiver}
+              handleClick={this.chooseHistoryReceiver}
+              handleClose={this.clearHistoryReceiver}
+            />
           </View>
         </Flex>
         <Button title='保存' type='primary' style={styles.btn} />

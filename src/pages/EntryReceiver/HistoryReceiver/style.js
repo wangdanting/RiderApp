@@ -15,6 +15,10 @@ const styles = EStyleSheet.create({
     zIndex: 100000,
     maxHeight: '630rem'
   },
+  content: {
+    width: '100%',
+    maxHeight: '630rem'
+  },
   item: {
     paddingVertical: '30rem',
     paddingRight: '50rem',
