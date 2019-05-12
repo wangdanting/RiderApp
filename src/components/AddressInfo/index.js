@@ -1,3 +1,8 @@
+/**
+ * @file: 取件、收件信息展示组件
+ * @author：王丹婷
+ */
+
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';

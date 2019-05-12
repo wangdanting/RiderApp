@@ -17,6 +17,9 @@ class AuthLoading extends PureComponent {
     this.checkToken();
   }
 
+  /**
+   * 检查Token，判断是否已登录
+   */
   checkToken = async () => {
     const { navigation } = this.props;
     const userToken = await Storage.get(authKey);
