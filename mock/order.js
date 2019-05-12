@@ -87,7 +87,7 @@ const waitAcceptList = () => ({
       fromStreet: '李子坝[地铁站]',
       merchMobile: '13452431618',
       orderCreateTime: '15:15',
-      orderTurnState: false,
+      orderTurnState: true,
       orderType: 'now',
       orderWay: 'applet',
       orderWayName: '普通下单',
@@ -1301,4 +1301,12 @@ Mock.mock(/\/express_orders\/courier/, 'get', options => {
     default:
       return [];
   }
+});
+
+Mock.mock(/\/express_orders\/receive/, 'post', {
+  result: true
+});
+
+Mock.mock(/\/orders\/switch\/revocation/, 'post', {
+  result: true
 });

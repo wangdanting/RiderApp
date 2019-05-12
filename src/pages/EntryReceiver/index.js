@@ -9,6 +9,8 @@ import HistoryReceiver from './HistoryReceiver';
 import { regMobile, request } from '@/utils';
 import styles from './style';
 
+require('../../../mock/entryReceiver');
+
 const shouIcon = require('./images/ic_shou.png');
 
 class entryReceiver extends PureComponent {
@@ -76,7 +78,9 @@ class entryReceiver extends PureComponent {
   /**
    * 匹配历史收件人
    */
-  chooseHistoryReceiver = () => {};
+  chooseHistoryReceiver = () => {
+    this.clearHistoryReceiver();
+  };
 
   /**
    * 清除匹配历史收件人
