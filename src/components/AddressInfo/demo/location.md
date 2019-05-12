@@ -1,6 +1,6 @@
-显示基础的取件、收件信息
+显示基础的取件、收件信息, 并显示导航信息
 
-![](../../../../ignorePack/addressInfo-qu-song.png)
+![](../../../../ignorePack/addressInfo-location.png)
 
 ```jsx
 import AddressInfo from '@/components/AddressInfo';
@@ -16,7 +16,7 @@ const songInfo = {
 };
 
 ReactDOM.render(
-   <AddressInfo quInfo={quInfo} songInfo={songInfo} />,
+   <AddressInfo quInfo={quInfo} songInfo={songInfo} isShowNaviQu={true} NaviOnPress={navLocation} />,
   mountNode
 );
 ```
