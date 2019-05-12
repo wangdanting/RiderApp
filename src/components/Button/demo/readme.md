@@ -1,4 +1,4 @@
-显示基础的取件、收件信息
+三种样式的按钮，都可以添加icon
 
 ![](../../../../ignorePack/button-default.png)
 ![](../../../../ignorePack/button-primary.png)
