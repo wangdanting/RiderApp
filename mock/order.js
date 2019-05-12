@@ -56,9 +56,10 @@ const waitAcceptList = () => ({
       merchMobile: '13452431618',
       orderCreateTime: '15:10',
       orderTurnState: false,
-      orderType: 'now',
+      orderType: 'predict',
       orderWay: 'applet',
       orderWayName: '普通下单',
+      orderLabel: true,
       thirdOrderId: '',
       thirdOrderViewId: ''
     },
