@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
-import { View, Text, Image, TextInput } from 'react-native';
+import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import { Flex, Toast } from '@ant-design/react-native';
+import PropTypes from 'prop-types';
 import Modal from '@/components/Modal';
 import commonStyles from '@/common/styles/commonStyles';
 import Button from '@/components/Button';
@@ -20,6 +21,18 @@ class entryReceiver extends PureComponent {
     headerStyle: {
       borderBottomWidth: 0,
       elevation: 0
+    }
+  };
+
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func
+    }) // 导航
+  };
+
+  static defaultProps = {
+    navigation: {
+      navigate: () => {}
     }
   };
 
@@ -83,6 +96,14 @@ class entryReceiver extends PureComponent {
     });
   };
 
+  /**
+   * 跳转选择收货人地址页面
+   */
+  goAddress = () => {
+    const { navigation } = this.props;
+    navigation.navigate('Address');
+  };
+
   render() {
     const { mobile, historyReceiver, name } = this.state;
     return (
@@ -110,11 +131,13 @@ class entryReceiver extends PureComponent {
                 onChangeText={this.handleChangeName}
               />
             </Flex>
-            <Flex style={[styles.item, commonStyles.borderBottom]}>
-              <Text style={styles.label}>地区：</Text>
-              <TextInput placeholder='点击选择' style={styles.input} />
-              <View style={styles.arrow} />
-            </Flex>
+            <TouchableOpacity onPress={this.goAddress}>
+              <Flex style={[styles.item, commonStyles.borderBottom]}>
+                <Text style={styles.label}>地区：</Text>
+                <TextInput placeholder='点击选择' style={styles.input} editable={false} />
+                <View style={styles.arrow} />
+              </Flex>
+            </TouchableOpacity>
             <Flex style={styles.item}>
               <Text style={styles.label}>门牌号：</Text>
               <TextInput placeholder='例：16号楼427室' style={styles.input} />
