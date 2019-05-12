@@ -18,8 +18,6 @@ import OfflineTip from './OfflineTip';
 import { setLng, setLat } from '@/actions/global';
 import styles from './style';
 
-require('../../../mock/order');
-
 const headerLeft = require('./images/head_60.png');
 const topNotice = require('./images/top_notice.png');
 const taskIcon = require('./images/float_task.png');

@@ -7,6 +7,8 @@ import PageLoading from './components/PageLoading';
 import { NavigationService } from './utils';
 // import UpdateTip from '@/components/UpdateTip';
 
+require('../mock');
+
 const App = ({ loading }) => (
   <Fragment>
     <AntProvider>

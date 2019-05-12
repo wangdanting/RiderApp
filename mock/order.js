@@ -2,7 +2,12 @@ import Mock from 'mockjs';
 import qs from 'qs';
 
 Mock.mock(/\/courier\/fight_today/, 'get', {
-  onlineState: true
+  courierMobile: '17789522217',
+  courierName: '王丹婷',
+  courierSettleAmount: 999,
+  onlineState: true,
+  orderCount: 45,
+  totalDistance: 100
 });
 
 Mock.mock(/\/courier\/online/, 'put', {
