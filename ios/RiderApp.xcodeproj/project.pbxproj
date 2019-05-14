@@ -30,6 +30,7 @@
 		BEC984173453480CB9BFF8E3 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 559D8887AC46487AB57358B7 /* libRNGestureHandler.a */; };
 		C01D8B9C715D41BBA65D59DC /* libRNCAsyncStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11CC35C4F2D84A63AD4DD924 /* libRNCAsyncStorage.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
+		F6C5E34D33AC4754A153F9C2 /* libRNUpdateVersionModule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFA101189B543A485656E56 /* libRNUpdateVersionModule.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,6 +230,13 @@
 			remoteGlobalIDString = 3D3CD9321DE5FBEE00167DC4;
 			remoteInfo = "cxxreact-tvOS";
 		};
+		59384BC4228A963100D52AD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A242E40E339744F399B0B826 /* RNUpdateVersionModule.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNUpdateVersionModule;
+		};
 		5E9157321DD0AC6500FF2AA8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
@@ -361,7 +369,9 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		9407B88FE5214D339FB94135 /* RNCAsyncStorage.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCAsyncStorage.xcodeproj; path = "../node_modules/@react-native-community/async-storage/ios/RNCAsyncStorage.xcodeproj"; sourceTree = "<group>"; };
 		970B2BEBBF594EC58F8361E5 /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; };
+		9CFA101189B543A485656E56 /* libRNUpdateVersionModule.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNUpdateVersionModule.a; sourceTree = "<group>"; };
 		9FEA621DCC11D540CB32A8BA /* libPods-RiderApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RiderApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A242E40E339744F399B0B826 /* RNUpdateVersionModule.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNUpdateVersionModule.xcodeproj; path = "../node_modules/@iwubida/react-native-update-version/ios/RNUpdateVersionModule.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B1C139E603ECAFA296D46D85 /* Pods-RiderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiderApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RiderApp/Pods-RiderApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B855EB88C363EBD8AF1C59B2 /* Pods-RiderApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiderApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RiderApp/Pods-RiderApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -393,6 +403,7 @@
 				C01D8B9C715D41BBA65D59DC /* libRNCAsyncStorage.a in Frameworks */,
 				9EF3E0822ED04EC7914B1479 /* libRNVersionNumber.a in Frameworks */,
 				9193ED5830B1B4B891653279 /* libPods-RiderApp.a in Frameworks */,
+				F6C5E34D33AC4754A153F9C2 /* libRNUpdateVersionModule.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +538,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		59384BC1228A963100D52AD8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				59384BC5228A963100D52AD8 /* libRNUpdateVersionModule.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		59DB776F227E864E00BA2C8D /* RCTModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -572,6 +591,7 @@
 				970B2BEBBF594EC58F8361E5 /* libRNGestureHandler-tvOS.a */,
 				11CC35C4F2D84A63AD4DD924 /* libRNCAsyncStorage.a */,
 				2987C43EE7364772B1B94E6B /* libRNVersionNumber.a */,
+				9CFA101189B543A485656E56 /* libRNUpdateVersionModule.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -620,6 +640,7 @@
 				D2A44472FED5436AB11B499B /* RNGestureHandler.xcodeproj */,
 				9407B88FE5214D339FB94135 /* RNCAsyncStorage.xcodeproj */,
 				E2FF7B46209F4C4ABD347C52 /* RNVersionNumber.xcodeproj */,
+				A242E40E339744F399B0B826 /* RNUpdateVersionModule.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -687,7 +708,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				DDB9B0BF33F989A33E89705A /* [CP] Copy Pods Resources */,
+				DEA8212F5F42131D7C8C6996 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -708,8 +729,7 @@
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = APJLFX867H;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -781,6 +801,10 @@
 				{
 					ProductGroup = 7B4A7EA2225C917200EAAD56 /* Products */;
 					ProjectRef = D2A44472FED5436AB11B499B /* RNGestureHandler.xcodeproj */;
+				},
+				{
+					ProductGroup = 59384BC1228A963100D52AD8 /* Products */;
+					ProjectRef = A242E40E339744F399B0B826 /* RNUpdateVersionModule.xcodeproj */;
 				},
 				{
 					ProductGroup = 7B58AB35228515080060B8FF /* Products */;
@@ -991,6 +1015,13 @@
 			remoteRef = 3DAD3EAA1DF850E9000B6D8A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		59384BC5228A963100D52AD8 /* libRNUpdateVersionModule.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNUpdateVersionModule.a;
+			remoteRef = 59384BC4228A963100D52AD8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1136,22 +1167,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DDB9B0BF33F989A33E89705A /* [CP] Copy Pods Resources */ = {
+		DEA8212F5F42131D7C8C6996 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RiderApp/Pods-RiderApp-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-RiderApp/Pods-RiderApp-resources.sh",
 				"${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMap.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RiderApp/Pods-RiderApp-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RiderApp/Pods-RiderApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1189,24 +1224,29 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = APJLFX867H;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
 					"$(SRCROOT)/../node_modules/react-native-version-number/ios",
+					"$(SRCROOT)/../node_modules/@iwubida/react-native-update-version/ios/**",
 				);
 				INFOPLIST_FILE = RiderApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/RiderApp\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.RiderApp12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iwubida.RiderApp;
 				PRODUCT_NAME = RiderApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1219,23 +1259,28 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = APJLFX867H;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
 					"$(SRCROOT)/../node_modules/react-native-version-number/ios",
+					"$(SRCROOT)/../node_modules/@iwubida/react-native-update-version/ios/**",
 				);
 				INFOPLIST_FILE = RiderApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/RiderApp\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.RiderApp12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iwubida.RiderApp;
 				PRODUCT_NAME = RiderApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";

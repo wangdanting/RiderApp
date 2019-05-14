@@ -718,6 +718,15 @@
   dependencies:
     react-native-general-actionsheet "^1.0.3"
 
+"@iwubida/react-native-update-version@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.npm.taobao.org/@iwubida/react-native-update-version/download/@iwubida/react-native-update-version-0.0.2.tgz#d225e39ed02fbdab1c14a17ede2590a7538da714"
+  integrity sha1-0iXjntAvvascFKF+3iWQp1ONpxQ=
+  dependencies:
+    prop-types "^15.7.2"
+    react-native-extended-stylesheet "^0.11.1"
+    react-native-modal "^10.0.0"
+
 "@jest/console@^24.7.1":
   version "24.7.1"
   resolved "http://registry.npm.taobao.org/@jest/console/download/@jest/console-24.7.1.tgz#32a9e42535a97aedfe037e725bd67e954b459545"
@@ -5978,10 +5987,10 @@ react-lifecycles-compat@^3.0.4:
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
 "react-native-amap3d@https://github.com/qiuxiang/react-native-amap3d/tarball/master":
-  version "1.1.0"
-  resolved "https://github.com/qiuxiang/react-native-amap3d/tarball/master#cfa44c3bb3404b1f682cfcccfc7236ba941f16d8"
+  version "1.1.1"
+  resolved "https://github.com/qiuxiang/react-native-amap3d/tarball/master#503ab6eb7c382a2bc5ea00b81832797f4bbeab64"
 
-react-native-animatable@^1.2.4:
+react-native-animatable@^1.2.4, react-native-animatable@^1.3.1:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.3.2.tgz#4783ee1a73dc98815aef234ce6b819f80bfe7d80"
   integrity sha512-rmah3KQ63ft8DxkzFUwJSuZeq+oSYwldoGF4DTOR5WM2WR5wiWLgBAtrAHlI3Di3by323uOR21s+MlqPcHz2Kw==
@@ -6046,6 +6055,14 @@ react-native-modal-popover@^0.0.12:
     "@types/prop-types" "^15.5.5"
     lodash.debounce "^4.0.8"
     prop-types "^15.6.2"
+
+react-native-modal@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.npm.taobao.org/react-native-modal/download/react-native-modal-10.0.0.tgz#1b0b15cc6cda9584f122cced106a9f9f37befc08"
+  integrity sha1-GwsVzGzalYTxIsztEGqfnze+/Ag=
+  dependencies:
+    prop-types "^15.6.2"
+    react-native-animatable "^1.3.1"
 
 react-native-modal@^9.0.0:
   version "9.0.0"
