@@ -6,7 +6,6 @@ import com.facebook.react.ReactApplication;
 import com.reactlibrary.RNUpdateVersionModulePackage;
 import cn.qiuxiang.react.amap3d.AMap3DPackage;
 import com.apsl.versionnumber.RNVersionNumberPackage;
-import com.reactlibrary.RNUpdateVersionModulePackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
@@ -33,7 +32,6 @@ public class MainApplication extends Application implements ReactApplication {
             new RNUpdateVersionModulePackage(),
             new AMap3DPackage(),
             new RNVersionNumberPackage(),
-            new RNUpdateVersionModulePackage(),
             new AsyncStoragePackage(),
             new RNGestureHandlerPackage(),
             new RNFusedLocationPackage()
