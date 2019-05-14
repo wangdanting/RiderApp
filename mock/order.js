@@ -59,7 +59,7 @@ const waitAcceptList = () => ({
       orderType: 'predict',
       orderWay: 'applet',
       orderWayName: '普通下单',
-      orderLabel: true,
+      orderLabel: '94懒',
       thirdOrderId: '',
       thirdOrderViewId: ''
     },
