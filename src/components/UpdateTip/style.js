@@ -2,13 +2,19 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 const styles = EStyleSheet.create({
   container: {
-    position: 'relative'
+    position: 'relative',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   bg: {
     width: '487rem',
     height: '297rem'
   },
   content: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     top: '-2rem',
     paddingHorizontal: '60rem',
     width: '530rem',
@@ -63,15 +69,23 @@ const styles = EStyleSheet.create({
   close: {
     position: 'absolute',
     top: '130rem',
-    right: '30rem'
+    right: '100rem'
   },
   closeInner: {
-    width: '60rem',
-    height: '50rem'
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '70rem',
+    height: '60rem'
   },
   closeIcon: {
     width: '21rem',
     height: '21rem'
+  },
+  divider: {
+    width: '100%',
+    height: '1rem',
+    backgroundColor: '#c0c0c0'
   }
 });
 

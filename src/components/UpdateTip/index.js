@@ -9,10 +9,8 @@ import {
   NativeModules,
   DeviceEventEmitter
 } from 'react-native';
-import { Flex } from '@ant-design/react-native';
 import VersionNumber from 'react-native-version-number';
 import Modal from 'react-native-modal';
-import Divider from '@/components/Divider';
 import config from '@/config';
 import { request, isOkVersionCode } from '@/utils';
 import styles from './style';
@@ -178,30 +176,28 @@ class UpdateTip extends PureComponent {
     ));
     return (
       <Modal isVisible={isVisible} backdropOpacity={0.5} onBackdropPress={this.onBackdropPress}>
-        <Flex justify='center'>
-          <Flex direction='column' justify='center' align='center' style={styles.container}>
-            <Image source={bg} style={styles.bg} />
-            <Flex style={styles.content} direction='column' align='center'>
-              <View style={styles.seperate} />
-              <Text style={styles.title}>{title}</Text>
-              <Text style={styles.version}>{versionCode}</Text>
-              <ScrollView style={styles.inner}>{updateDetail}</ScrollView>
-              <Divider color='#c0c0c0' />
-              <TouchableOpacity onPress={this.update}>
-                <View style={styles.btn}>
-                  <Text style={styles.btnTxt}>{btnText}</Text>
-                </View>
-              </TouchableOpacity>
-            </Flex>
-            {promote === 1 ? (
-              <TouchableOpacity style={styles.close} onPress={this.hideModal}>
-                <Flex justify='center' align='center' style={styles.closeInner}>
-                  <Image source={closeIcon} style={styles.closeIcon} />
-                </Flex>
-              </TouchableOpacity>
-            ) : null}
-          </Flex>
-        </Flex>
+        <View style={styles.container}>
+          <Image source={bg} style={styles.bg} />
+          <View style={styles.content}>
+            <View style={styles.seperate} />
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.version}>{versionCode}</Text>
+            <ScrollView style={styles.inner}>{updateDetail}</ScrollView>
+            <View style={styles.divider} />
+            <TouchableOpacity onPress={this.update}>
+              <View style={styles.btn}>
+                <Text style={styles.btnTxt}>{btnText}</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+          {promote === 1 ? (
+            <TouchableOpacity style={styles.close} onPress={this.hideModal}>
+              <View justify='center' align='center' style={styles.closeInner}>
+                <Image source={closeIcon} style={styles.closeIcon} />
+              </View>
+            </TouchableOpacity>
+          ) : null}
+        </View>
       </Modal>
     );
   }
