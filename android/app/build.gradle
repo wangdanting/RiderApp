@@ -141,6 +141,7 @@ android {
 }
 
 dependencies {
+    implementation project(':@iwubida_react-native-update-version')
     implementation project(':react-native-amap3d')
     implementation project(':react-native-version-number')
     implementation project(':@react-native-community_async-storage')
@@ -149,10 +150,6 @@ dependencies {
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation project(':react-native-geolocation-service') //定位
-//    implementation 'com.azhon:appupdate:2.1.0' // app 更新
-
-    implementation project(':react-native-update-version-module')
-
 }
 
 // Run this once to be able to run the application with BUCK

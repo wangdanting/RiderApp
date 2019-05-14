@@ -1,9 +1,9 @@
 rootProject.name = 'RiderApp'
+include ':@iwubida_react-native-update-version'
+project(':@iwubida_react-native-update-version').projectDir = new File(rootProject.projectDir, '../node_modules/@iwubida/react-native-update-version/android')
 include ':react-native-amap3d'
 project(':react-native-amap3d').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-amap3d/lib/android')
 
-include ':app', ':react-native-update-version-module'
-project(':react-native-update-version-module').projectDir = new File(rootProject.projectDir, '../../reactNativeUpdateVersion/android')
 include ':react-native-version-number'
 project(':react-native-version-number').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-version-number/android')
 include ':@react-native-community_async-storage'
