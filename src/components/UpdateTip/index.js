@@ -32,7 +32,7 @@ const closeIcon = require('./image/ic-close.png');
 
 class UpdateTip extends PureComponent {
   state = {
-    status: 'before', // 状态 'before' 下载前 'downloading'下载中 'failure'下载失败
+    status: 'unDownloading', // 状态 'unDownloading' 没在下载中 'downloading'下载中'
     isVisible: false, // 是否显示modal框
     promote: 0, // 更新方式(1升级，0不升级，2强制升级)
     versionCode: 'v1.2.1', // 外部版本号
@@ -107,18 +107,22 @@ class UpdateTip extends PureComponent {
     DeviceEventEmitter.addListener('DownloadApkProgress', arg => {
       const percent = Math.floor((arg.current / arg.total) * 100) || 0;
       this.setState({
+        status: 'downloading',
         title: '升级中...',
         btnText: `${percent}%...`
       });
       if (arg.error) {
         this.setState({
+          status: 'unDownloading',
           title: '下载失败',
           btnText: '重新下载'
         });
       }
       if (arg.done) {
         this.setState({
-          title: '升级成功'
+          status: 'unDownloading',
+          title: '升级成功',
+          btnText: '重新升级'
         });
       }
     });
