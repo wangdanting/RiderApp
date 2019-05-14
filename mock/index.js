@@ -4,3 +4,4 @@ require('./login');
 require('./order');
 require('./personalCenter');
 require('./transferOrder');
+require('./updateTip');

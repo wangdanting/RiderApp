@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import AppContainer from './router/index';
 import PageLoading from './components/PageLoading';
 import { NavigationService } from './utils';
-// import UpdateTip from '@/components/UpdateTip';
+import UpdateTip from '@/components/UpdateTip';
 
 require('../mock');
 
@@ -18,7 +18,7 @@ const App = ({ loading }) => (
         }}
       />
     </AntProvider>
-    {/* <UpdateTip /> */}
+    <UpdateTip />
     <PageLoading loading={loading} />
   </Fragment>
 );
