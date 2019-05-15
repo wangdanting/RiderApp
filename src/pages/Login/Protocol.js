@@ -16,9 +16,7 @@ class Protocol extends PureComponent {
     BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
   }
 
-  handleBackPress = () => {
-    // console.log('xxxx');
-  };
+  handleBackPress = () => {};
 
   render() {
     return (

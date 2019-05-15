@@ -16,7 +16,7 @@
   "dependencies": {
     "@ant-design/react-native": "^3.1.5",
     "@iwubida/react-native-map-linking": "^1.0.1",
-    "@iwubida/react-native-update-version": "^0.0.5",
+    "@iwubida/react-native-update-version": "^1.0.1",
     "@react-native-community/async-storage": "^1.4.0",
     "axios": "^0.18.0",
     "dayjs": "^1.8.12",

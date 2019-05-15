@@ -718,14 +718,15 @@
   dependencies:
     react-native-general-actionsheet "^1.0.3"
 
-"@iwubida/react-native-update-version@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@iwubida/react-native-update-version/-/react-native-update-version-0.0.5.tgz#50210268c51a749c6a3d5be247e8cd90bc592557"
-  integrity sha512-aPLQl0PcvL+AKPAXekEo8vvyiqBJ76A/XIbbRVIJxHk6kJOOin8QOtw2QsAC7Y93g2AOtxE8ZPGO4Zm/MrP2Lg==
+"@iwubida/react-native-update-version@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@iwubida/react-native-update-version/-/react-native-update-version-1.0.1.tgz#9b38e28540bf3c61a9ba44a5f99c463c97e140a4"
+  integrity sha512-AKXBecsHEMJwyYlNXKHmYCfrcYHR2U6RlZLtDlkUkSpvvCKQ5QXMw4xN6iRncA5U7afqHGL1o4UT9649apAetw==
   dependencies:
+    axios "^0.18.0"
     prop-types "^15.7.2"
-    react-native-extended-stylesheet "^0.11.1"
     react-native-modal "^10.0.0"
+    react-native-version-number "^0.3.5"
 
 "@jest/console@^24.7.1":
   version "24.7.1"
