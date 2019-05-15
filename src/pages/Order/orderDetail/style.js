@@ -16,7 +16,8 @@ const styles = EStyleSheet.create({
   },
   whiteBg: {
     backgroundColor: '#fff',
-    paddingHorizontal: '30rem'
+    paddingHorizontal: '30rem',
+    paddingBottom: '20rem'
   }
 });
 

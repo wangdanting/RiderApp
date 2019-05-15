@@ -115,7 +115,6 @@ class OrderDetail extends PureComponent {
           destLat={Number(destLat)}
           destLng={Number(destLng)}
         />
-
         <View style={styles.whiteBg}>
           {item.orderWay === 'applet-fast' ? <OneClick id={item.thirdOrderViewId} /> : null}
           <AddressInfo
