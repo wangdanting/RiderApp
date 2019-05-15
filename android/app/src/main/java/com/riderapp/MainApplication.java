@@ -3,8 +3,8 @@ package com.riderapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.reactlibrary.RNUpdateVersionModulePackage;
 import cn.qiuxiang.react.amap3d.AMap3DPackage;
+import com.reactlibrary.RNUpdateVersionModulePackage;
 import com.apsl.versionnumber.RNVersionNumberPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -29,8 +29,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNUpdateVersionModulePackage(),
             new AMap3DPackage(),
+            new RNUpdateVersionModulePackage(),
             new RNVersionNumberPackage(),
             new AsyncStoragePackage(),
             new RNGestureHandlerPackage(),
