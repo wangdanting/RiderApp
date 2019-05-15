@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
-import { MapView, Marker } from '@iwubida/react-native-amap3d';
+import { MapView, Marker } from 'react-native-amap3d';
 import { Flex } from '@ant-design/react-native';
 import styles from './style';
 

@@ -15,9 +15,8 @@
   },
   "dependencies": {
     "@ant-design/react-native": "^3.1.5",
-    "@iwubida/react-native-amap3d": "^1.0.0",
     "@iwubida/react-native-map-linking": "^1.0.1",
-    "@iwubida/react-native-update-version": "^1.0.1",
+    "@iwubida/react-native-update-version": "^1.0.4",
     "@react-native-community/async-storage": "^1.4.0",
     "axios": "^0.18.0",
     "dayjs": "^1.8.12",
@@ -27,6 +26,7 @@
     "qs": "^6.7.0",
     "react": "^16.8.6",
     "react-native": "0.59.3",
+    "react-native-amap3d": "https://github.com/qiuxiang/react-native-amap3d/tarball/master",
     "react-native-extended-stylesheet": "^0.11.1",
     "react-native-general-actionsheet": "^1.0.3",
     "react-native-geolocation-service": "^2.0.0",

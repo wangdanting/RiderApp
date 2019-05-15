@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -31,6 +30,8 @@
 		C01D8B9C715D41BBA65D59DC /* libRNCAsyncStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11CC35C4F2D84A63AD4DD924 /* libRNCAsyncStorage.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		F6C5E34D33AC4754A153F9C2 /* libRNUpdateVersionModule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFA101189B543A485656E56 /* libRNUpdateVersionModule.a */; };
+		6188EE4E635B4737BE5BEBE7 /* RNAMap3D.app in Resources */ = {isa = PBXBuildFile; fileRef = B66A0997533D46A08B83AB12 /* RNAMap3D.app */; };
+		327D50A0D8C647AFB682DDB7 /* RNAMap3DTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 80B7241A6F724B9AA92BD11B /* RNAMap3DTests.xctest */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -379,6 +380,9 @@
 		E2FF7B46209F4C4ABD347C52 /* RNVersionNumber.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVersionNumber.xcodeproj; path = "../node_modules/react-native-version-number/ios/RNVersionNumber.xcodeproj"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		8822A91805674A89A3947F10 /* RNAMap3D.xcodeproj */ = {isa = PBXFileReference; name = "RNAMap3D.xcodeproj"; path = "../node_modules/react-native-amap3d/ios/RNAMap3D.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		B66A0997533D46A08B83AB12 /* RNAMap3D.app */ = {isa = PBXFileReference; name = "RNAMap3D.app"; path = "RNAMap3D.app"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.application; explicitFileType = undefined; includeInIndex = 0; };
+		80B7241A6F724B9AA92BD11B /* RNAMap3DTests.xctest */ = {isa = PBXFileReference; name = "RNAMap3DTests.xctest"; path = "RNAMap3DTests.xctest"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.cfbundle; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -404,6 +408,8 @@
 				9EF3E0822ED04EC7914B1479 /* libRNVersionNumber.a in Frameworks */,
 				9193ED5830B1B4B891653279 /* libPods-RiderApp.a in Frameworks */,
 				F6C5E34D33AC4754A153F9C2 /* libRNUpdateVersionModule.a in Frameworks */,
+				6188EE4E635B4737BE5BEBE7 /* RNAMap3D.app in Resources */,
+				327D50A0D8C647AFB682DDB7 /* RNAMap3DTests.xctest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,6 +647,7 @@
 				9407B88FE5214D339FB94135 /* RNCAsyncStorage.xcodeproj */,
 				E2FF7B46209F4C4ABD347C52 /* RNVersionNumber.xcodeproj */,
 				A242E40E339744F399B0B826 /* RNUpdateVersionModule.xcodeproj */,
+				8822A91805674A89A3947F10 /* RNAMap3D.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1231,11 +1238,14 @@
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
 					"$(SRCROOT)/../node_modules/react-native-version-number/ios",
 					"$(SRCROOT)/../node_modules/@iwubida/react-native-update-version/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-amap3d/ios/RNAMap3D/**",
 				);
 				INFOPLIST_FILE = RiderApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/RiderApp\"",
+					"\"$(SRCROOT)/RiderApp\"",
 					"\"$(SRCROOT)/RiderApp\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1265,11 +1275,14 @@
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
 					"$(SRCROOT)/../node_modules/react-native-version-number/ios",
 					"$(SRCROOT)/../node_modules/@iwubida/react-native-update-version/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-amap3d/ios/RNAMap3D/**",
 				);
 				INFOPLIST_FILE = RiderApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/RiderApp\"",
+					"\"$(SRCROOT)/RiderApp\"",
 					"\"$(SRCROOT)/RiderApp\"",
 				);
 				OTHER_LDFLAGS = (

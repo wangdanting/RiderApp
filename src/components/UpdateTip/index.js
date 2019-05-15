@@ -45,7 +45,7 @@ class UpdateTip extends PureComponent {
     const { version, versionCode, updateInfo, promote, clientUrl } = this.state;
     return (
       <UpdateVersion
-        appId={appId}
+        appleId={appId}
         version={version}
         versionCode={versionCode}
         promote={promote}
