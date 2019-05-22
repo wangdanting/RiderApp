@@ -1,6 +1,6 @@
-# 一个基础的react-native项目
+# 一个基础的react-native Demo
 
-##### 下面将解释该App实现的过程和功能 (`/src/components/`下每个包装的组件都有单独的`demo`介绍使用)
+##### 一款含有基础功能页面的react-native Demo，兼容Android 和 iOS，下面将解释该App实现的过程和功能 (`/src/components/`下每个包装的组件都有单独的`demo`介绍使用)
 
 <p float="left">
 
@@ -13,6 +13,16 @@
 <img src="./ignorePack/r-map.jpg" width="200px">
 
 </p>
+
+## 技术栈
+
+- 使用框架：[react](https://reactjs.org/)、[react-native](https://facebook.github.io/react-native/)、[react-navigation](https://reactnavigation.org/)
+- 状态管理：[redux](https://redux.js.org/)、[react-redux](https://react-redux.js.org/)、[redux-thunk](https://github.com/reduxjs/redux-thunk)、
+- 使用请求：[axios](https://github.com/axios/axios)
+- 类型检查：[prop-types](https://www.npmjs.com/package/prop-types)
+- mock: [mockjs](http://mockjs.com/)
+- 样式插件：[react-native-extended-stylesheet](https://www.npmjs.com/package/react-native-extended-stylesheet)
+- 搭建环境：[babel-eslint](https://github.com/babel/babel-eslint)、[eslint](https://eslint.org/)、[prettier](https://prettier.io/)、[husky](https://www.npmjs.com/package/husky)、[lint-staged](https://www.npmjs.com/package/lint-staged)
 
 ## 搭建环境（https://facebook.github.io/react-native/docs/getting-started）
 
