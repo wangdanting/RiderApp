@@ -24,6 +24,33 @@
 - 样式插件：[react-native-extended-stylesheet](https://www.npmjs.com/package/react-native-extended-stylesheet)
 - 搭建环境：[babel-eslint](https://github.com/babel/babel-eslint)、[eslint](https://eslint.org/)、[prettier](https://prettier.io/)、[husky](https://www.npmjs.com/package/husky)、[lint-staged](https://www.npmjs.com/package/lint-staged)
 
+## 预览
+
+```shell
+  git clone git@github.com:wangdanting/RiderApp.git
+  cd RiderApp
+  yarn install
+```
+
+Xcode模拟器，需要安装进入ios文件下安装pod
+
+```shell
+  cd ios
+  pod install
+```
+
+Xcode模拟器
+
+```shell
+  yarn ios
+```
+
+Android(需要用USB连接Android手机)
+
+```shell
+  yarn android
+```
+
 ## 搭建环境  [官网地址](https://facebook.github.io/react-native/docs/getting-started)
 
 电脑安装依赖(开发平台：macOS； 目标平台：iOS)
@@ -206,7 +233,19 @@ const styles = EStyleSheet.create({
 export default styles;
 ```
 
-## 案例
+## 请求
+
+```javascript
+import { request } from '@/utils';
+  request('/sessions/create_token', {
+      method: 'post',
+      data: params,
+      noLoading: true //是否loading
+    }).then(({ result }) => {
+    });
+```
+
+## 相关页面
 
 <p float="left">
 
