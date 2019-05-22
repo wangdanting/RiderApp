@@ -128,7 +128,7 @@ module.exports = {
   yarn lint:fix
 ```
 
-## 路由和导航
+## 路由
 
 - 运用 `react-navigation` 插件实现整个App程序的路由和导航跳转功能
 - 在`/src/router`下配置导航
@@ -167,4 +167,95 @@ const AppNavigation = createSwitchNavigator(
 const AppContainer = createAppContainer(AppNavigation);
 
 export default AppContainer;
+```
+
+## 导航
+
+- 占位
+
+## 样式
+
+运用`react-native-extended-stylesheet` 替换React Native的StyleSheet，可以实现媒体查询、变量、动态主题、相对单位、百分
+比、数学运算、缩放。
+
+在根目录中定义
+
+```javascript
+  import EStyleSheet from 'react-native-extended-stylesheet';
+  // style里面的尺寸大小都写与2倍图设计稿一样(以宽度750px为基础)，eg:设计稿为20px,style里面写20rem
+  const entireScreenWidth = Dimensions.get('window').width;
+  EStyleSheet.build({ $rem: entireScreenWidth / 750, ...variables });
+```
+
+下面👇为如何使用，(用法和StyleSheet差不多)
+
+```javascript
+import EStyleSheet from 'react-native-extended-stylesheet';
+
+const styles = EStyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    marginHorizontal: '60rem'
+  },
+  wrap: {
+    flex: 1
+  }
+});
+
+export default styles;
+```
+
+## 案例
+
+<p float="left">
+
+<img src="/ignorePack/r-history.jpg" width="200px">
+
+<img src="/ignorePack/r-modal.jpg" width="200px">
+
+<img src="/ignorePack/r-search-1.jpg" width="200px">
+
+<img src="/ignorePack/r-search.jpg" width="200px">
+
+<img src="/ignorePack/r-tab.jpg" width="200px">
+
+</p>
+
+## 模版
+
+```javascript
+- actions (redux actions)
+- common (公共资源)
+  - images (公共图片)
+  - styles (公共样式)
+- components (封装组件)
+  - AddressInfo(收件寄件地址组件)
+  - Button(按钮组件)
+  - DashedDivider(虚线)
+  - DateRangePicker(日期范围组件)
+  - DescriptionList(描述列表组件)
+  - Divider(分割线)
+  - EmptyOrder(空列表占位)
+  - EmptySearch(空查询结果占位)
+  - FlatList(列表封装,实现下拉刷新，上拉加载)
+  - Modal(模态框)
+  - OneClick(一键下单组件)
+  - PageLoading(loading组件，垂直居中)
+  - SearchInput(搜索框)
+  - Separate (分隔内容组件)
+  - StatusBar(状态栏组件)
+  - Steps(步骤条)
+  - Tag(Tag)
+  - UpdateTip(升级提示)
+- config (环境配置)
+- pages (业务)
+- reducers (reducers)
+- router (路由配置)
+- utils
+  - request (封装请求)
+  - storage (封装Storage)
+  - index (公共方法)
+- app.js
+- index.js
 ```
