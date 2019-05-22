@@ -1,6 +1,18 @@
 # 一个基础的react-native项目
 
-##### 下面将解释该App实现的过程和功能 (`/src/components/`下每个包装的组件都有单独的demo介绍使用)
+##### 下面将解释该App实现的过程和功能 (`/src/components/`下每个包装的组件都有单独的`demo`介绍使用)
+
+<p float="left">
+
+<img src="./ignorePack/r-login.jpg" width="200px">
+
+<img src="./ignorePack/r-home.jpg" width="200px">
+
+<img src="./ignorePack/r-person.jpg" width="200px">
+
+<img src="./ignorePack/r-map.jpg" width="200px">
+
+</p>
 
 ## 搭建环境（https://facebook.github.io/react-native/docs/getting-started）
 
