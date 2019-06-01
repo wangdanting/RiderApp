@@ -17,6 +17,7 @@
 ## 技术栈
 
 - 使用框架：[react](https://reactjs.org/)、[react-native](https://facebook.github.io/react-native/)、[react-navigation](https://reactnavigation.org/)
+- UI组件库：[@ant-design/react-native](https://rn.mobile.ant.design/index-cn)
 - 状态管理：[redux](https://redux.js.org/)、[react-redux](https://react-redux.js.org/)、[redux-thunk](https://github.com/reduxjs/redux-thunk)、
 - 使用请求：[axios](https://github.com/axios/axios)
 - 类型检查：[prop-types](https://www.npmjs.com/package/prop-types)
