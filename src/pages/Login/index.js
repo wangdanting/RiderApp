@@ -82,7 +82,7 @@ class Login extends PureComponent {
     this.setState({
       validateCode
     });
-    if (validateCode.length === 4) {
+    if (validateCode.length === 6) {
       this.hideKeyboard();
     }
   };
@@ -138,7 +138,7 @@ class Login extends PureComponent {
     const { mobile, validateCode } = this.state;
     if (!this.isOkMobile(mobile)) {
       Toast.info('请输入正确的手机号码！');
-    } else if (validateCode.length < 4) {
+    } else if (validateCode.length < 6) {
       Toast.info('请输入正确的验证码！');
     } else {
       this.login();
@@ -153,14 +153,14 @@ class Login extends PureComponent {
     const { mobile, validateCode } = this.state;
     const params = {
       mobile,
-      validateCode,
+      password: validateCode,
       deviceType: Platform.OS,
       deviceToken: '2bcb2fcbcec5442ca2815f54e63196d7'
     };
     this.setState({
       isSubmiting: true
     });
-    request('/sessions/create_token', {
+    request('/sessions/create_token_pwd', {
       method: 'post',
       data: params,
       noLoading: true
@@ -211,9 +211,9 @@ class Login extends PureComponent {
             <Text style={styles.label}>验证码</Text>
             <View style={[styles.item, CommonStyles.borderBottom]}>
               <TextInput
-                placeholder='请输入4位验证码'
+                placeholder='请输入6位验证码'
                 keyboardType='numeric'
-                maxLength={4}
+                maxLength={6}
                 style={styles.input}
                 onChangeText={this.handleChangeSMS}
               />

@@ -1,5 +1,5 @@
 const config = {
-  host: 'https://wbd.api.t.jiabangou.com',
+  host: 'https://api.t.iwubida.com',
   // host: 'http://192.168.1.55:9001',
   urlPrefix: '/api/express',
   authKey: 'Authorization',
