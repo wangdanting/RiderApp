@@ -18,7 +18,7 @@
     "@iwubida/react-native-map-linking": "^1.0.1",
     "@iwubida/react-native-update-version": "^1.0.4",
     "@react-native-community/async-storage": "^1.4.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "dayjs": "^1.8.12",
     "mockjs": "^1.0.1-beta3",
     "node-forge": "^0.8.2",
