@@ -21,7 +21,7 @@
     "axios": "^0.18.0",
     "dayjs": "^1.8.12",
     "mockjs": "^1.0.1-beta3",
-    "node-forge": "^0.8.2",
+    "node-forge": "^1.0.0",
     "prop-types": "^15.7.2",
     "qs": "^6.7.0",
     "react": "^16.8.6",
