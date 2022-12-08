@@ -23,7 +23,7 @@
     "mockjs": "^1.0.1-beta3",
     "node-forge": "^0.8.2",
     "prop-types": "^15.7.2",
-    "qs": "^6.7.0",
+    "qs": "^6.5.3",
     "react": "^16.8.6",
     "react-native": "0.59.3",
     "react-native-amap3d": "https://github.com/qiuxiang/react-native-amap3d/tarball/master",
